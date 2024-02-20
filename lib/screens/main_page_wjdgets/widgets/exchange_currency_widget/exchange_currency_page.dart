@@ -35,64 +35,80 @@ class _ExchangeCurrencyPageState extends State<ExchangeCurrencyPage> {
       _currcard = value;
     });
   }
+
+  final _formkey = GlobalKey<FormState>();
+  TextEditingController controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     AppLocalizations? lang = AppLocalizations(); //.of(context);
     AppEngine appEngine = AppEngine();
     List <String> myHintText = [lang.amountAfterExchange, lang.currencyToExchange, lang.amountToExchange, lang.currencyExchangeInto];
-    return Wrap(
-      children: [
-        Stack(
-          children: [
-            Column(         
-              children: [
-                Container(height: size.height*.03,),
-                  SizedBox(height: 150.h,width: 150.w,
-                child:Image.asset("assets/img/exc_currency.png", color: appEngine.myColors['myGreen1'],)
-              ),
-              Container(height: size.height*.03,),
-                  Text('00.00  ${VarGloabal.currenciesList[1]}', style: 
-                  TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: appEngine.myFontSize["textInButton"],
-                    fontFamily: appEngine.myFontfamilies["st"]
-                  ),),
-                Container(height: size.height*.03,),
-                Row(
-                  children: [
-                    Flexible(
-                      flex: 3,
-                      child: InputContainer( hintText: myHintText[2])),
-                    Flexible(
-                      flex: 1,
-                      child: GestureDetector(
-                        onTap: () {
-                          currcard = !currcard;
-                        },
-                        child: Text("${VarGloabal.currenciesList[0]}     ",style: 
-                          TextStyle(
-                            color: appEngine.myColors['myGreen1'],
-                            fontWeight: FontWeight.bold,
-                            fontSize: appEngine.myFontSize["textInButton"],
-                            fontFamily: appEngine.myFontfamilies["st"]
-                          ),),
-                      ),),
-                  ],
+    return Form(
+      key: _formkey,
+      child: Wrap(
+        children: [
+          Stack(
+            children: [
+              Column(         
+                children: [
+                  Container(height: size.height*.03,),
+                    SizedBox(height: 150.h,width: 150.w,
+                  child:Image.asset("assets/img/exc_currency.png", color: appEngine.myColors['myGreen1'],)
                 ),
                 Container(height: size.height*.03,),
-                ResgisterButton(buttonText: lang.exchange,)
-              ],
-            ),
-
-            currcard? CurrencyCard(
-              onPressed: (){
-                currcard = false;
-              },
-              ) : Container()
-          ],
-        ),
-      ],
+                    Text('00.00  ${VarGloabal.currenciesList[1]}', style: 
+                    TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: appEngine.myFontSize["textInButton"],
+                      fontFamily: appEngine.myFontfamilies["st"]
+                    ),),
+                  Container(height: size.height*.03,),
+                  Row(
+                    children: [
+                      Flexible(
+                        flex: 3,
+                        child: InputContainer( hintText: myHintText[2], 
+                        keyboardType: TextInputType.number,
+                        controller: controller,
+                        )),
+                      Flexible(
+                        flex: 1,
+                        child: GestureDetector(
+                          onTap: () {
+                            currcard = !currcard;
+                          },
+                          child: Text("  ${VarGloabal.currenciesList[0]} ",
+                          style: 
+                            TextStyle(
+                              color: appEngine.myColors['myGreen1'],
+                              fontWeight: FontWeight.bold,
+                              fontSize: appEngine.myFontSize["textInButton"],
+                              fontFamily: appEngine.myFontfamilies["st"]
+                            ),),
+                        ),),
+                    ],
+                  ),
+                  Container(height: size.height*.03,),
+                  ResgisterButton(buttonText: lang.exchange,
+                  action: () {
+                    if (_formkey.currentState!.validate() && VarGloabal.currenciesList.length == 2) {
+                      
+                    }
+                  },
+                  )
+                ],
+              ),
+      
+              currcard? CurrencyCard(
+                onPressed: (){
+                  currcard = false;
+                },
+                ) : Container()
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

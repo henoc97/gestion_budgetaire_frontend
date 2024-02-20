@@ -8,11 +8,12 @@ import '../../../app_engine/app_engine.dart';
 class InputContainer extends StatefulWidget {
   
 
-  const InputContainer({super.key,  this.isClicked, required this.hintText, this.containerHeight,  this.controller, });
+  const InputContainer({super.key,  this.isClicked, required this.hintText, this.containerHeight,  this.controller, this.keyboardType });
   final bool? isClicked;
   final String hintText;
   final double? containerHeight;
   final TextEditingController? controller;
+  final TextInputType? keyboardType;
 
 
   @override
@@ -56,8 +57,10 @@ class _InputContainerState extends State<InputContainer> {
       margin: const EdgeInsets.all(8.0),
       padding: const EdgeInsets.all(8.0),
 
-      child: TextFormField(decoration: InputDecoration.collapsed(hintText: widget.hintText, 
-      hintStyle:TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["hintText"], color: appEngine.myColors["myBlack"]), 
+      child: TextFormField(
+        keyboardType : widget.keyboardType,
+        decoration: InputDecoration.collapsed(hintText: widget.hintText, 
+        hintStyle:TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["hintText"], color: appEngine.myColors["myBlack"]), 
       ),
       controller:widget.controller==null?TextEditingController() : widget.controller!,
       style : TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["hintText"], color: appEngine.myColors["myBlack"]),  
