@@ -96,4 +96,21 @@ class AppLocalizations{
   String get amountAfterExchange => Intl.message("Montant obtenu 1,24", name : "amountAfterExchange");
   String get currencyExchangeInto => Intl.message("\$", name : "currencyExchangeInto");
   String get exchange => Intl.message("Echanger", name : "exchange");
+
+  String get afrique => Intl.message("afrique", name : "afrique");
+  String get ameriqueNord => Intl.message("amérique du nord", name : "ameriqueNord");
+  String get ameriqueSud => Intl.message("amérique du sud", name : "ameriqueSud");
+  String get asie => Intl.message("asie", name : "asie");
+  String get europe => Intl.message("europe", name : "europe");
+  String get oceanie => Intl.message("océanie", name : "oceanie");
+
 }
+
+Map<String, List<String>> currenciesMapContinent = {
+  AppLocalizations().afrique : ["XOF", "XAF", "ZAR", "NGN", "EGP", "KES", "GHS", "DZD", "MAD", "SDG", "UGX", "ETB"],
+  AppLocalizations().ameriqueNord : ["USD", "CAD", "MXN", "HTG", "ANG", "BZD", "CUP", "JMD", "BSD", "KYD"],
+  AppLocalizations().ameriqueSud : ["BRL", "ARS", "COP", "CLP", "PEN", "VES", "BOB", "UYU", "PYG", "GYD"],
+  AppLocalizations().asie : ["JPY", "CNY", "HKD", "KRW", "INR", "TWD", "SGD", "THB", "MYR", "IDR"],
+  AppLocalizations().europe: ["EUR", "GBP", "CHF", "SEK", "NOK", "DKK", "PLN", "RUB", "TRY", "HUF"],
+  AppLocalizations().oceanie : ["AUD", "NZD", "PGK", "FJD", "WST", "SBD", "TOP", "VUV", "KID", "TVI"]
+};
