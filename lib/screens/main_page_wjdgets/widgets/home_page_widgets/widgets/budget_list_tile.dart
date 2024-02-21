@@ -38,7 +38,20 @@ class _BudgetListTileState extends State<BudgetListTile> {
                           style: TextStyle(fontFamily: appEngine.myFontfamilies["nd"], fontWeight: FontWeight.bold, color: appEngine.myColors["mygrey"], fontSize: appEngine.myFontSize["more"]),)),
                         ),
                       ),
-                      Text(widget.budget.categoryname, style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["hintText"],  fontWeight: FontWeight.bold,),),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(widget.budget.categoryname, style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["hintText"],  fontWeight: FontWeight.bold,),),
+                          DateTime.now().isAfter(widget.budget.begindate.add(Duration(days: widget.budget.periods)))? 
+                           Text('(${lang.dateExpired})', 
+                          style: TextStyle(
+                            fontFamily: appEngine.myFontfamilies["st"],
+                            fontWeight: FontWeight.bold,
+                            color: appEngine.myColors['myRed']!
+                          ),
+                          ):Container()
+                        ],
+                      ),
 
                     ],
                   ),

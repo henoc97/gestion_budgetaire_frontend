@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
@@ -7,7 +6,6 @@ import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 import '../../app_engine/app_engine.dart';
 import '../../app_engine/app_localizations.dart';
-import '../../backend/blocLogic/userbudgetsbloc/userbudgets_bloc.dart';
 import 'widgets/exchange_currency_widget/exchange_currency_page.dart';
 import 'widgets/home_page_widgets/home_page.dart';
 import 'widgets/objectif_savings_widgets/objectif_savings_page.dart';
@@ -30,12 +28,12 @@ class _MainPageState extends State<MainPage> {
       _currentIndex = value;
     });
   }
+  
   @override
   Widget build(BuildContext context) {
-    final userbudgetsbloc = BlocProvider.of<UserbudegetsBloc>(context);
-    Size size = MediaQuery.of(context).size;
     AppLocalizations? lang = AppLocalizations(); //.of(context);
     AppEngine appEngine = AppEngine();
+    final List<String> bigTitles = [lang.mainPageTitle0, lang.mainPageTitle1, lang.mainPageTitle2, lang.mainPageTitle3];
     return Scaffold(
       
       bottomNavigationBar: SalomonBottomBar(
@@ -104,7 +102,8 @@ class _MainPageState extends State<MainPage> {
             ),
           ],
         ),
-         Text(lang.mainPageTitle3, style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["textInButton"], color: appEngine.myColors["myBlack"]),),
+         Text(bigTitles[currentIndex], 
+         style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["textInButton"], color: appEngine.myColors["myBlack"]),),
 
         Expanded(child:currentIndex == 2? 
         const HomePage():

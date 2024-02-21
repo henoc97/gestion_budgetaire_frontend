@@ -158,7 +158,7 @@ class _SignPageState extends State<SignPage> {
                                     fieldCtrs[2].text.trim(),
                                     fieldCtrs[3].text.trim(),
                                     'USD'),
-                                double.parse(fieldCtrs[5].text.trim())));
+                                double.parse(fieldCtrs[5].text.trim()..replaceAll(',', '.'))));
                           } else {
                             print('mot de passe non cohérent');
                           }

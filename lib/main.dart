@@ -5,11 +5,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 import 'backend/blocLogic/budgetspendsbloc/budgetspends_bloc.dart';
+import 'backend/blocLogic/exchangebloc/exchange_bloc.dart';
 import 'backend/blocLogic/makebudgetbloc/makebudget_bloc.dart';
+import 'backend/blocLogic/makesavingsbloc/makesavings_bloc.dart';
 import 'backend/blocLogic/transacsbloc/transacs_bloc.dart';
 import 'backend/blocLogic/userbloc/user_bloc.dart';
 import 'backend/blocLogic/userbudgetsbloc/userbudgets_bloc.dart';
 import 'backend/blocLogic/userlogbloc/user_log_bloc.dart';
+import 'backend/blocLogic/usersavingsbloc/usersavings_bloc.dart';
 import 'screens/log_sign_widgets/log_sign_page.dart';
 
 void main() {
@@ -48,6 +51,15 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<BudgetspendsBloc>(
           create: (context) => BudgetspendsBloc(),
+        ),
+        BlocProvider<ExchangeBloc>(
+          create: (context) => ExchangeBloc(),
+        ),
+        BlocProvider<MakesavingsBloc>(
+          create: (context) => MakesavingsBloc(),
+        ),
+        BlocProvider<UsersavingsBloc>(
+          create: (context) => UsersavingsBloc(),
         )
         ],
         child: MaterialApp(

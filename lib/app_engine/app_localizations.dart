@@ -104,6 +104,10 @@ class AppLocalizations{
   String get europe => Intl.message("europe", name : "europe");
   String get oceanie => Intl.message("océanie", name : "oceanie");
 
+  // budget tile
+    String get dateExpired => Intl.message("Date expirée", name : "dateExpired");
+
+
 }
 
 Map<String, List<String>> currenciesMapContinent = {

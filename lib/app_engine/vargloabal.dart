@@ -2,5 +2,5 @@
 class VarGloabal{
 
   static num budamountrest =0;
-  static List<String> currenciesList = [];
+  static List<String> currenciesList = ["USD","EUR"];
 }
