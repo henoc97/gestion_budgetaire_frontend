@@ -32,7 +32,9 @@ class _MakeSavingGoalState extends State<MakeSavingGoal> {
   }
 
     List<TextEditingController> fieldCtrs = [for(int i = 0; i<2; i++) TextEditingController()];
+    var keysBoard = [TextInputType.text, TextInputType.number];
     final _formKey = GlobalKey<FormState>();
+
 
   bool _showBeginDateAndPeriod = false;
   bool get showBeginDateAndPeriod => _showBeginDateAndPeriod;
@@ -77,7 +79,11 @@ class _MakeSavingGoalState extends State<MakeSavingGoal> {
                             onTap: () {
                               isClicked = index;
                             },
-                            child: InputContainer(isClicked: isClicked == index? true : false, hintText: hintText[index],controller: fieldCtrs[index],));
+                            child: InputContainer(
+                              keyboardType: keysBoard[index],
+                              isClicked: isClicked == index? true : false, 
+                              hintText: hintText[index],
+                              controller: fieldCtrs[index],));
                         },
                       ),
                     ),

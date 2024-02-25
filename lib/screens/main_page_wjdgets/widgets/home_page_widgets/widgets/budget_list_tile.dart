@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gestion_budgetaire_app/app_engine/vargloabal.dart';
 
 import '../../../../../app_engine/app_engine.dart';
 import '../../../../../app_engine/app_localizations.dart';
@@ -60,8 +61,8 @@ class _BudgetListTileState extends State<BudgetListTile> {
                     padding: const EdgeInsets.all(8.0),
                     child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Text("${widget.budget.budgetamountfix.toStringAsFixed(2)} \$", style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["hintText"],  fontWeight: FontWeight.bold, color: appEngine.myColors["myGreen1"]),),
-                        Text("${(widget.budget.budgetamountfix - widget.budget.budgetamount).toStringAsFixed(2)} \$", style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["hintText"],  fontWeight: FontWeight.bold, color: appEngine.myColors["myRed"]),),
+                        Text("${widget.budget.budgetamountfix.toStringAsFixed(2)} ${VarGloabal.favoritecurrencySymbol}", style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["hintText"],  fontWeight: FontWeight.bold, color: appEngine.myColors["myGreen1"]),),
+                        Text("${(widget.budget.budgetamountfix - widget.budget.budgetamount).toStringAsFixed(2)} ${VarGloabal.favoritecurrencySymbol}", style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["hintText"],  fontWeight: FontWeight.bold, color: appEngine.myColors["myRed"]),),
                       ],
                     ),
                   ),

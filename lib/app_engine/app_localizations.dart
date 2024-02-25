@@ -77,6 +77,8 @@ class AppLocalizations{
   String get glimpse => Intl.message("aperçue", name : "glimpse");
   String get addSpend => Intl.message("Ajouter dépense", name : "addSpend");
   String get mySpends => Intl.message("Mes dépenses", name : "mySpends");
+  String get spendsWarning => Intl.message('''Vous ne pouvez pas enrégister 
+      une dépense car le budget commence : ''', name : "spendsWarning");
 
 
   // add spend

@@ -6,6 +6,7 @@ import 'package:gestion_budgetaire_app/backend/blocLogic/exchangebloc/exchange_b
 
 import '../../../../app_engine/app_engine.dart';
 import '../../../../app_engine/app_localizations.dart';
+import '../../../../app_engine/currencies_hall.dart';
 import '../../../log_widgets/widgets/input_container.dart';
 import '../../../log_widgets/widgets/register_button.dart';
 import 'widget/currencycard.dart';
@@ -48,6 +49,7 @@ class _ExchangeCurrencyPageState extends State<ExchangeCurrencyPage> {
       lang.amountToExchange,
       lang.currencyExchangeInto
     ];
+    var currencySymbols = CurrencySymbols.currencySymbols;
     return BlocBuilder<ExchangeBloc, ExchangeState>(
       builder: (context, state) {
         return Form(
@@ -72,7 +74,8 @@ class _ExchangeCurrencyPageState extends State<ExchangeCurrencyPage> {
                         height: size.height * .03,
                       ),
                        Text( state is ExchangedState?
-                        '${state.exchange.amount}  ${VarGloabal.currenciesList[1]}' : '00.00  ${VarGloabal.currenciesList[1]}',
+                        '${state.exchange.amount}  ${currencySymbols[VarGloabal.currenciesList[1]]}' :
+                         '00.00  ${currencySymbols[VarGloabal.currenciesList[1]]}',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: appEngine.myFontSize["textInButton"],
@@ -97,7 +100,7 @@ class _ExchangeCurrencyPageState extends State<ExchangeCurrencyPage> {
                               currcard = !currcard;
                             },
                             child: Text(
-                              "  ${VarGloabal.currenciesList[0]} ",
+                              "  ${currencySymbols[VarGloabal.currenciesList[0]]} ",
                               style: TextStyle(
                                   color: appEngine.myColors['myGreen1'],
                                   fontWeight: FontWeight.bold,

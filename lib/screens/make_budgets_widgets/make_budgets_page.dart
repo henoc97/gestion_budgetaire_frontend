@@ -32,6 +32,7 @@ class _MakeBudgetPageState extends State<MakeBudgetPage> {
   List<TextEditingController> fieldCtrs = [
     for (int i = 0; i < 2; i++) TextEditingController()
   ];
+  var keysBoard = [TextInputType.text, TextInputType.number];
   final _formkey = GlobalKey<FormState>();
 
   bool _showBeginDateAndPeriod = false;
@@ -84,6 +85,7 @@ class _MakeBudgetPageState extends State<MakeBudgetPage> {
                                 isClicked = index;
                               },
                               child: InputContainer(
+                                keyboardType: keysBoard[index],
                                 isClicked:
                                     isClicked == index ? true : false,
                                 hintText: hintText[index],

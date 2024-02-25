@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
+import 'package:gestion_budgetaire_app/app_engine/vargloabal.dart';
 import 'package:meta/meta.dart';
 import 'package:http/http.dart'as http;
 import 'package:equatable/equatable.dart';
@@ -45,8 +46,10 @@ class UserLogBloc extends Bloc<UserLogEvent, UserLogState> {
         var data = json.decode(response.body);
         await saveString("tokens", data['token']);
         // print(" token___ : ${await getString('tokens')}");
+        var user = Users.fromJson(data['user']);
+        VarGloabal.currency = user.favoriteCurrency;
         emit(UserLoggedState(
-          user: Users.fromJson(data['user'])
+          user: user
         ));
         //await Future.delayed(Duration.zero);
 

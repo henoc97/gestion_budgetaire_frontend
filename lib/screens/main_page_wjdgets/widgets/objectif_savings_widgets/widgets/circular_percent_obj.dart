@@ -4,10 +4,15 @@ import 'package:percent_indicator/percent_indicator.dart';
 
 import '../../../../../app_engine/app_engine.dart';
 import '../../../../../app_engine/app_localizations.dart';
+import '../../../../../backend/model/savings.dart';
 
 
 class CircularPercentObjectif extends StatefulWidget {
-  const CircularPercentObjectif({super.key});
+  const CircularPercentObjectif({super.key,
+    required this.savings,
+  });
+
+  final Savings savings;
 
   @override
   State<CircularPercentObjectif> createState() => _CircularPercentObjectifState();
@@ -19,18 +24,19 @@ class _CircularPercentObjectifState extends State<CircularPercentObjectif> {
     AppLocalizations? lang = AppLocalizations(); //.of(context);
     AppEngine appEngine = AppEngine();
     Size size = MediaQuery.of(context).size;
-    return Container(
+    return SizedBox(
             height: size.height*.1,
             child: CircularPercentIndicator(
                 radius: 35,
                 lineWidth: 7.sp,
                 animation: true,
                 animationDuration:2000,
-                percent: 0.6,
+                percent: (widget.savings.allsavings/widget.savings.targetamount),
                 center:  Center(
                   child: 
                     Text(
-                      "60 %",
+                      "${(100*(widget.savings.allsavings/widget.savings.targetamount))
+                      .round().toString()}%",
                       
                            style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["hintText"],  fontWeight: FontWeight.bold, color: appEngine.myColors["myBlack"])
                     ),

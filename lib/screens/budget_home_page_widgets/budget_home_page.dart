@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../app_engine/app_engine.dart';
 import '../../app_engine/app_localizations.dart';
+import '../../app_engine/date_formatter.dart';
 import '../../app_engine/vargloabal.dart';
 import '../../backend/model/budget.dart';
 import 'widgets/add_spends_widgets/add_spends_part.dart';
@@ -75,8 +76,8 @@ class _BudgetHomePageState extends State<BudgetHomePage> {
                                 ],),
                                 Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
-                                  Text("\$ ${(widget.budget.budgetamountfix)}", style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["hintText"],  fontWeight: FontWeight.bold, color: appEngine.myColors["myGreen1"]),),
-                                  Text("\$ ${(widget.budget.budgetamountfix - VarGloabal.budamountrest).toStringAsFixed(2)}", style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["hintText"],  fontWeight: FontWeight.bold, color: appEngine.myColors["myRed"]),),
+                                  Text("${VarGloabal.favoritecurrencySymbol} ${(widget.budget.budgetamountfix)}", style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["hintText"],  fontWeight: FontWeight.bold, color: appEngine.myColors["myGreen1"]),),
+                                  Text("${VarGloabal.favoritecurrencySymbol} ${(widget.budget.budgetamountfix - VarGloabal.budamountrest).toStringAsFixed(2)}", style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["hintText"],  fontWeight: FontWeight.bold, color: appEngine.myColors["myRed"]),),
                                 ],)
                               ]),
                             ),
@@ -121,7 +122,25 @@ class _BudgetHomePageState extends State<BudgetHomePage> {
             ),
 
              Expanded(
-               child: toggleGlimpseAddSpend?  Glimpse(budget: widget.budget,) :  Wrap(children: [ AddSpends(budgetid : widget.budget.id)]),
+               child: toggleGlimpseAddSpend?  Glimpse(budget: widget.budget,) : 
+               periods([widget.budget.begindate, DateTime.now()])>0?
+                Wrap(children: [ AddSpends(budgetid : widget.budget.id)]) : 
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        child : Text(lang.spendsWarning, style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], 
+                        fontSize: appEngine.myFontSize["hintText"],  
+                        fontWeight: FontWeight.bold, color: appEngine.myColors["myBlack"]),)
+                      ),
+                      Text(widget.budget.begindate.toIso8601String().split('T')[0], style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], 
+                        fontSize: appEngine.myFontSize["hintText"],  
+                        fontWeight: FontWeight.bold, color: appEngine.myColors["myGreen1"]))
+                    ],
+                  ),
+                ),
              )
 
         ],

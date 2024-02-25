@@ -1,11 +1,10 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:gestion_budgetaire_app/backend/blocLogic/transacsbloc/transacs_bloc.dart';
 import 'package:gestion_budgetaire_app/backend/model/transacs.dart';
 
 import '../../../../../app_engine/app_engine.dart';
-import '../../../../../app_engine/app_localizations.dart';
+import '../../../../../app_engine/vargloabal.dart';
 
 
 
@@ -19,10 +18,9 @@ class SpendsTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    AppLocalizations? lang = AppLocalizations(); //.of(context);
     AppEngine appEngine = AppEngine();
     return Container(
-      margin: EdgeInsets.fromLTRB(8, 0, 8, 8),
+      margin: const EdgeInsets.fromLTRB(8, 0, 8, 8),
       height: size.height * .07,
       decoration: BoxDecoration(
           borderRadius: appEngine.myRaduis["10"],
@@ -33,9 +31,9 @@ class SpendsTile extends StatelessWidget {
           Column(
             children: [
               SizedBox(
-                  width: size.width * .4,
+                  width: size.width * .55,
                   child: Text(
-                    "${spend.amount} \$",
+                    "${spend.amount} ${VarGloabal.favoritecurrencySymbol}",
                     style: TextStyle(
                         fontFamily:
                             appEngine.myFontfamilies["st"],
@@ -45,7 +43,7 @@ class SpendsTile extends StatelessWidget {
                         color: appEngine.myColors["myBlack"]),
                   )),
               SizedBox(
-                width: size.width * .4,
+                width: size.width * .55,
                 child: Text(spend.descriptions,
                   style: TextStyle(
                       fontFamily: appEngine.myFontfamilies["st"],

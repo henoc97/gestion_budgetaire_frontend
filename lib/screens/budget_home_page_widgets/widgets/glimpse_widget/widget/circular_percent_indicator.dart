@@ -35,7 +35,7 @@ class MyCircularPercentIndicator extends StatelessWidget {
                 lineWidth: 12.sp,
                 animation: true,
                 animationDuration:2000,
-                percent: percent,
+                percent: percent>1?1: percent,
                 center:  Center(
                   child: 
                     Text(
@@ -48,7 +48,11 @@ class MyCircularPercentIndicator extends StatelessWidget {
                 ),
                 
                 circularStrokeCap: CircularStrokeCap.round,
-                linearGradient :  LinearGradient(begin: Alignment.topCenter, 
+                linearGradient :percent>1?
+                  LinearGradient(begin: Alignment.topCenter, 
+            end: Alignment.bottomCenter, 
+            colors: [appEngine.myColors['myRed']!, appEngine.myColors['myRed']!, appEngine.myColors['myRed']!,],) :
+                   LinearGradient(begin: Alignment.topCenter, 
             end: Alignment.bottomCenter, 
             colors: [appEngine.myColors['myGreen1']!, appEngine.myColors['myGreen2']!, appEngine.myColors['myGreen3']!,],),
               ),
@@ -66,7 +70,7 @@ class MyCircularPercentIndicator extends StatelessWidget {
                     animation: true,
                     lineHeight: 16.sp,
                     animationDuration: 2000,
-                    percent: percentdate,
+                    percent: percentdate<0?0: percentdate<1?percentdate : 1,
                     linearGradient :  LinearGradient(begin: Alignment.topLeft, 
                                 end: Alignment.topRight, 
                                 colors: [appEngine.myColors['myGreen1']! , appEngine.myColors['myGreen2']!, appEngine.myColors['myGreen3']! ],),

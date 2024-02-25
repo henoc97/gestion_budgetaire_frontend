@@ -103,7 +103,10 @@ class _MainPageState extends State<MainPage> {
           ],
         ),
          Text(bigTitles[currentIndex], 
-         style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["textInButton"], color: appEngine.myColors["myBlack"]),),
+         style: TextStyle(fontFamily: appEngine.myFontfamilies["st"],
+          fontWeight: FontWeight.bold,
+          fontSize: appEngine.myFontSize["textInButton"], 
+          color: appEngine.myColors["myBlack"]),),
 
         Expanded(child:currentIndex == 2? 
         const HomePage():

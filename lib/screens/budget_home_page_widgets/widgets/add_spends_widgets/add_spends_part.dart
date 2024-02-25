@@ -32,6 +32,7 @@ class _AddSpendsState extends State<AddSpends> {
   List<TextEditingController> fieldCtrs = [
     for (int i = 0; i < 2; i++) TextEditingController()
   ];
+  var keysBoard = [TextInputType.number, TextInputType.text];
 
   @override
   Widget build(BuildContext context) {
@@ -51,6 +52,7 @@ class _AddSpendsState extends State<AddSpends> {
               itemCount: 2,
               itemBuilder: (BuildContext context, int index) {
                 return InputContainer(
+                  keyboardType: keysBoard[index],
                   isClicked: isClicked == index ? true : false,
                   hintText: myHintText[index],
                   containerHeight: index == 1 ? size.height * .08 : null,
@@ -67,7 +69,7 @@ class _AddSpendsState extends State<AddSpends> {
                 
                  setState(() {
                    VarGloabal.budamountrest = VarGloabal.budamountrest - 
-                     int.parse(fieldCtrs[0].text.trim().replaceAll(',', '.'));
+                     double.parse(fieldCtrs[0].text.trim().replaceAll(',', '.'));
                  });
                  print(VarGloabal.budamountrest);
               }

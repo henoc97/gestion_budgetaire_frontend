@@ -31,6 +31,7 @@ class _LogPageState extends State<LogPage> {
   List<TextEditingController> fieldCtrs = [
     for (int i = 0; i < 2; i++) TextEditingController()
   ];
+  var keysBoard = [TextInputType.emailAddress, TextInputType.text];
 
   @override
   Widget build(BuildContext context) {
@@ -90,6 +91,7 @@ class _LogPageState extends State<LogPage> {
                                     isClicked = index;
                                   },
                                   child: InputContainer(
+                                    keyboardType : keysBoard[index],
                                     isClicked:
                                         isClicked == index ? true : false,
                                     hintText: myHintText[index],
