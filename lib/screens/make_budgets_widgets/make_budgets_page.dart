@@ -28,6 +28,14 @@ class _MakeBudgetPageState extends State<MakeBudgetPage> {
       _isClicked = value;
     });
   }
+  
+  bool _isRegistring = false;
+  bool get isRegistring => _isRegistring;
+  set isRegistring(bool value) {
+    setState(() {
+      _isRegistring = value;
+    });
+  }
 
   List<TextEditingController> fieldCtrs = [
     for (int i = 0; i < 2; i++) TextEditingController()
@@ -118,8 +126,15 @@ class _MakeBudgetPageState extends State<MakeBudgetPage> {
                         if (state is MakedbudgetState) {
                           userbudgetsbloc.add(UserbudgetsgettingEvent());
                         }
+                        if (state is MakingbudgetState) {
+                          isRegistring = true;
+                        } else {
+                          isRegistring = false;
+                        }
                       },
-                      child: ResgisterButton(
+                      child:isRegistring? CircularProgressIndicator(
+                        color: appEngine.myColors["myGreen1"]
+                      ) : ResgisterButton(
                         buttonText: lang.registerBudget,
                         action: () {
                           if (_formkey.currentState!.validate() &&

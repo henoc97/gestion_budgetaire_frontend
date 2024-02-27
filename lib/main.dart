@@ -9,6 +9,7 @@ import 'backend/blocLogic/exchangebloc/exchange_bloc.dart';
 import 'backend/blocLogic/makebudgetbloc/makebudget_bloc.dart';
 import 'backend/blocLogic/makesavingsbloc/makesavings_bloc.dart';
 import 'backend/blocLogic/transacsbloc/transacs_bloc.dart';
+import 'backend/blocLogic/useraccount/useraccount_bloc.dart';
 import 'backend/blocLogic/userbloc/user_bloc.dart';
 import 'backend/blocLogic/userbudgetsbloc/userbudgets_bloc.dart';
 import 'backend/blocLogic/userlogbloc/user_log_bloc.dart';
@@ -60,6 +61,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<UsersavingsBloc>(
           create: (context) => UsersavingsBloc(),
+        ),
+        BlocProvider<UseraccountBloc>(
+          create: (context) => UseraccountBloc(),
         )
         ],
         child: MaterialApp(
@@ -98,60 +102,3 @@ class MyApp extends StatelessWidget {
 
 
 
-
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    
-    return Scaffold(
-      appBar: AppBar(
-       
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        
-        title: Text(widget.title),
-      ),
-      body: Center(
-        
-        child: Column(
-          
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
-  }
-}

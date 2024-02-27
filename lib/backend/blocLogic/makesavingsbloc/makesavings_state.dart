@@ -9,7 +9,7 @@ sealed class MakesavingsState extends Equatable {
 
 final class MakesavingsInitial extends MakesavingsState {}
 
-final class MakeingsavingState extends MakesavingsState {}
+final class MakingsavingState extends MakesavingsState {}
 
 final class MakedsavingState extends MakesavingsState {}
 

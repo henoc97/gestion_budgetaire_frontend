@@ -14,8 +14,7 @@ final class UserLoggingState extends UserLogState {}
 final class UserLoggedState extends UserLogState {
   final Users user;
   const UserLoggedState({required this.user});
-  @override
-  List<Object> get props => [user];
+  
 }
 
 final class UserLogError extends UserLogState {

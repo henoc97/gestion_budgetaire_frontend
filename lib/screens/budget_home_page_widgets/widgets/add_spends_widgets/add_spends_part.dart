@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gestion_budgetaire_app/app_engine/app_engine.dart';
 
 import '../../../../app_engine/app_localizations.dart';
 import '../../../../app_engine/vargloabal.dart';
@@ -28,6 +29,16 @@ class _AddSpendsState extends State<AddSpends> {
     });
   }
 
+  
+  bool _isRegistring = false;
+  bool get isRegistring => _isRegistring;
+  set isRegistring(bool value) {
+    setState(() {
+      _isRegistring = value;
+    });
+  }
+
+
   final _formkey = GlobalKey<FormState>();
   List<TextEditingController> fieldCtrs = [
     for (int i = 0; i < 2; i++) TextEditingController()
@@ -40,7 +51,8 @@ class _AddSpendsState extends State<AddSpends> {
     final userbudgetsbloc = BlocProvider.of<UserbudegetsBloc>(context);
     Size size = MediaQuery.of(context).size;
     final transacsbloc = BlocProvider.of<TransacsBloc>(context);
-    AppLocalizations? lang = AppLocalizations(); //.of(context);
+    AppLocalizations? lang = AppLocalizations(); 
+    AppEngine appEngine = AppEngine();
     List<String> myHintText = [lang.amount, lang.description];
     return Form(
       key: _formkey,
@@ -73,8 +85,15 @@ class _AddSpendsState extends State<AddSpends> {
                  });
                  print(VarGloabal.budamountrest);
               }
+              if (state is TransacsdoingState) {
+                isRegistring = true;
+              } else {
+                isRegistring = false;
+              }
             },
-            child: ResgisterButton(
+            child:isRegistring? CircularProgressIndicator(
+              color: appEngine.myColors["myGreen1"],
+            ) :  ResgisterButton(
               buttonText: lang.registerBudget,
               action: () {
                 if (_formkey.currentState!.validate()) {

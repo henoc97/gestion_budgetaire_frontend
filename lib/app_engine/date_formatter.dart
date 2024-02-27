@@ -19,9 +19,9 @@ int periods(List<DateTime?> dateList) {
   int differenceMilliseconds = finMilliseconds - debutMilliseconds;
 
   // Convertir la différence en jours
-  int differenceJours = (differenceMilliseconds / (1000 * 60 * 60 * 24)).round();
-  print(differenceJours);
-  return differenceJours;
+  int intervalleJours = (1+ differenceMilliseconds / (1000 * 60 * 60 * 24)).round();
+  print(intervalleJours);
+  return intervalleJours;
 }
 
 class DateList00{

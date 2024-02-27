@@ -62,7 +62,7 @@ class _BudgetHomePageState extends State<BudgetHomePage> {
                       children: [
                         Container(margin: EdgeInsets.only(top: 35.sp),
                           height: size.height*.1,
-                          width: size.width*.5,
+                         // width: size.width*.5,
                           decoration: BoxDecoration( color: Colors.white.withOpacity(0.6),
                             borderRadius: BorderRadius.all(appEngine.myRaduis["10raduis"])),
                             child: Padding(
@@ -72,11 +72,11 @@ class _BudgetHomePageState extends State<BudgetHomePage> {
                                 Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                   Text(widget.budget.categoryname, style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["hintText"],  fontWeight: FontWeight.bold, color: appEngine.myColors["myBlack"]),),
-                                  Text("${widget.budget.periods} jrs", style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["hintText"],  fontWeight: FontWeight.bold, color: appEngine.myColors["myBlack"]),),
+                                  Text("       ${widget.budget.periods} jrs", style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["hintText"],  fontWeight: FontWeight.bold, color: appEngine.myColors["myBlack"]),),
                                 ],),
                                 Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
-                                  Text("${VarGloabal.favoritecurrencySymbol} ${(widget.budget.budgetamountfix)}", style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["hintText"],  fontWeight: FontWeight.bold, color: appEngine.myColors["myGreen1"]),),
+                                  Text("${VarGloabal.favoritecurrencySymbol} ${(widget.budget.budgetamountfix)}    ", style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["hintText"],  fontWeight: FontWeight.bold, color: appEngine.myColors["myGreen1"]),),
                                   Text("${VarGloabal.favoritecurrencySymbol} ${(widget.budget.budgetamountfix - VarGloabal.budamountrest).toStringAsFixed(2)}", style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["hintText"],  fontWeight: FontWeight.bold, color: appEngine.myColors["myRed"]),),
                                 ],)
                               ]),
@@ -123,7 +123,7 @@ class _BudgetHomePageState extends State<BudgetHomePage> {
 
              Expanded(
                child: toggleGlimpseAddSpend?  Glimpse(budget: widget.budget,) : 
-               periods([widget.budget.begindate, DateTime.now()])>0?
+               periods([widget.budget.begindate, DateTime.now()])>=0?
                 Wrap(children: [ AddSpends(budgetid : widget.budget.id)]) : 
                 Padding(
                   padding: const EdgeInsets.all(8.0),

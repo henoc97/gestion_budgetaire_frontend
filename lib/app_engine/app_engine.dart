@@ -44,4 +44,22 @@ class AppEngine{
    // "less" : 18.sp
   };
 
+  // snackbar
+  void showToast(String message, BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          message,
+          style: TextStyle(color: myColors["myGreen2"]),
+        ),
+        elevation: 6.0,
+        behavior: SnackBarBehavior.floating,
+        backgroundColor: myColors["myWhite"],
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(5),
+        ),
+      ),
+    );
+  }
+
 }

@@ -12,7 +12,6 @@ import '../../app_engine/vargloabal.dart';
 import '../../backend/blocLogic/userbloc/user_bloc.dart';
 import '../log_widgets/widgets/input_container.dart';
 import '../log_widgets/widgets/register_button.dart';
-import '../main_page_wjdgets/widgets/exchange_currency_widget/widget/currencycard.dart';
 import 'widgets/choosecurrency.dart';
 
 class SignPage extends StatefulWidget {
@@ -44,6 +43,14 @@ class _SignPageState extends State<SignPage> {
   set currcard(bool value) {
     setState(() {
       _currcard = value;
+    });
+  }
+
+  bool _isRegistring = false;
+  bool get isRegistring => _isRegistring;
+  set isRegistring(bool value) {
+    setState(() {
+      _isRegistring = value;
     });
   }
 
@@ -163,9 +170,20 @@ class _SignPageState extends State<SignPage> {
                                                   if (state is UserCreatedState) {
                                                     AppTransition.standardGoTo(
                                                         context, const LogPage());
+                                                    for (var element in fieldCtrs) {
+                                                      element.clear();
+                                                    }
+                                                  }
+                                                  if (state is UserCreatingState) {
+                                                    isRegistring = true;
+                                                  }else{
+                                                    isRegistring = false;
                                                   }
                                                 },
-                                                child: ResgisterButton(
+                                                child: isRegistring? CircularProgressIndicator(
+                                                  color: appEngine.myColors["myGreen1"],
+                                                ) : 
+                                                 ResgisterButton(
                                                   buttonText: lang.register,
                                                   action: () {
                                                     if (_formkey.currentState!.validate()) {

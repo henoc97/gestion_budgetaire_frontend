@@ -26,6 +26,15 @@ class _LogPageState extends State<LogPage> {
       _isClicked = value;
     });
   }
+
+  bool _isLogging = false;
+  bool get isLogging => _isLogging;
+  set isLogging(bool value) {
+    setState(() {
+      _isLogging = value;
+    });
+  }
+
   final _formkey = GlobalKey<FormState>();
 
   List<TextEditingController> fieldCtrs = [
@@ -106,9 +115,16 @@ class _LogPageState extends State<LogPage> {
                               // Effectuer des actions lorsque l'utilisateur est connecté
                               AppTransition.standardGoTo(context, const MainPage());
                             }
+                            if (state is UserLoggingState) {
+                              isLogging = true;
+                            } else {
+                              isLogging = false;
+                            }
                             print(state);
                           },
-                          child: ResgisterButton(
+                          child:isLogging? CircularProgressIndicator(
+                            color: appEngine.myColors["myGreen1"],
+                          ) : ResgisterButton(
                             buttonText: lang.connect,
                             action: () {
                               

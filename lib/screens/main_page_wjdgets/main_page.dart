@@ -6,6 +6,7 @@ import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 import '../../app_engine/app_engine.dart';
 import '../../app_engine/app_localizations.dart';
+import 'widgets/account_page/account_page.dart';
 import 'widgets/exchange_currency_widget/exchange_currency_page.dart';
 import 'widgets/home_page_widgets/home_page.dart';
 import 'widgets/objectif_savings_widgets/objectif_savings_page.dart';
@@ -112,7 +113,7 @@ class _MainPageState extends State<MainPage> {
         const HomePage():
         currentIndex == 1? const ObjectifSavings() : 
         currentIndex == 3? const ExchangeCurrencyPage() : 
-        const Scaffold()
+        const AccountPage()
         )
       ]),)
       

@@ -91,7 +91,9 @@ class AppLocalizations{
   String get targetAmount => Intl.message("Montant cîblé", name : "targetAmount");
   String get reachGoalDate => Intl.message("La date pour atteindre l'objectif", name : "reachGoalDate");
  
- 
+  // Account page
+  String get bankname => Intl.message("Compte de : ", name : "bankname");
+  String get sold => Intl.message("sold :", name : "sold");
   // Exchange Currency Page
   String get amountToExchange => Intl.message("Le montant à convertir 1", name : "amountToExchange");
   String get currencyToExchange => Intl.message("€", name : "currencyToExchange");

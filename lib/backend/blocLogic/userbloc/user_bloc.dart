@@ -20,9 +20,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     on<UserEventCreating>((event, emit) async{
       await createUser(event, emit);
     });
-    on<UserEventCreated>((event, emit) async{
-      print('object');
-    });
+    
 
   }
   createUser(UserEventCreating event, Emitter<UserState> emit)async{
@@ -36,7 +34,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
           'Content-Type': 'application/json',
         },
         body: jsonEncode(datatopost),
-      );
+      );//.timeout(const Duration(seconds: 3));
       if (response.statusCode == 200) {
         emit(UserCreatedState());
         print("response.body : ${response.body}");
@@ -47,6 +45,8 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       }
       } catch (e) {
         print("e : $e");
+      } finally {
+
       }
       
     }

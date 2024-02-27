@@ -22,7 +22,7 @@ class MakesavingsBloc extends Bloc<MakesavingsEvent, MakesavingsState> {
   }
   
   createSaving(MakingsavingsEvent event, Emitter emit) async {
-    emit(MakeingsavingState());
+    emit(MakingsavingState());
 
     var datatopost = event.savings.toJson();
     var token = await getString("tokens");

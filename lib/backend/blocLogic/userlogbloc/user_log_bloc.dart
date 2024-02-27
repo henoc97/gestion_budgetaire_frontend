@@ -41,13 +41,15 @@ class UserLogBloc extends Bloc<UserLogEvent, UserLogState> {
         body: jsonEncode(datatopost),
       );
       if (response.statusCode == 200) {
-        //print("response.body : ${response.body}");
+        print("response.body : ${response.body}");
         
         var data = json.decode(response.body);
         await saveString("tokens", data['token']);
         // print(" token___ : ${await getString('tokens')}");
         var user = Users.fromJson(data['user']);
         VarGloabal.currency = user.favoriteCurrency;
+        print("VarGloabal.currency : ${VarGloabal.currency}");
+
         emit(UserLoggedState(
           user: user
         ));

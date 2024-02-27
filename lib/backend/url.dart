@@ -17,7 +17,7 @@ static const userGoals = "$host/userGoals";
 static const createtransac = "$host/create_transac";
 static const budgettransacs = "$host/budgettransacs";
 static const deletetransac = "$host/deletetransac";
-static const createaccount = "$host/create_account";
+static const useraccount = "$host/user_account";
 static const updatesold = "$host/updatesold";
 static const convertamount = "$host/convertamount";
 
