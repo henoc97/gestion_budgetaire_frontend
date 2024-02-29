@@ -28,3 +28,29 @@ class Transacs{
     };
   }
 }
+
+class Transfer{
+  
+  int id;
+  num amount;
+  String descriptions;
+  DateTime registereddate;
+
+  Transfer(this.id, this.amount, this.descriptions, this.registereddate);
+
+  factory Transfer.fromJson(Map<String, dynamic> json) {
+    return Transfer(
+      json["id"],
+      json["amount"],
+      json["descriptions"].toString(),
+      DateTime.parse(json["registerdate"])
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      "amount": amount,
+      "descriptions": descriptions,
+    };
+  }
+}

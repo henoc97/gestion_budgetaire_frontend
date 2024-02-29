@@ -19,3 +19,25 @@ class Account{
     };
   }
 }
+
+
+
+class SavingsBank{
+  int id;
+  num sold;
+
+  SavingsBank(this.id, this.sold);
+
+  factory SavingsBank.fromJson(Map<String, dynamic> json) {
+    return SavingsBank(
+      json["id"],
+      json["amount"],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      "sold": sold,
+    };
+  }
+}

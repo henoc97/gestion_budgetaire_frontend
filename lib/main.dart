@@ -3,12 +3,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 import 'backend/blocLogic/budgetspendsbloc/budgetspends_bloc.dart';
 import 'backend/blocLogic/exchangebloc/exchange_bloc.dart';
 import 'backend/blocLogic/makebudgetbloc/makebudget_bloc.dart';
 import 'backend/blocLogic/makesavingsbloc/makesavings_bloc.dart';
 import 'backend/blocLogic/transacsbloc/transacs_bloc.dart';
+import 'backend/blocLogic/updatesavingsbloc/updatesaving_bloc.dart';
 import 'backend/blocLogic/useraccount/useraccount_bloc.dart';
 import 'backend/blocLogic/userbloc/user_bloc.dart';
 import 'backend/blocLogic/userbudgetsbloc/userbudgets_bloc.dart';
@@ -26,7 +26,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -64,6 +63,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<UseraccountBloc>(
           create: (context) => UseraccountBloc(),
+        ),
+        BlocProvider<UpdatesavingBloc>(
+          create: (context) => UpdatesavingBloc(),
         )
         ],
         child: MaterialApp(

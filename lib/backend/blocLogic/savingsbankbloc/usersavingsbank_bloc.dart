@@ -2,35 +2,33 @@ import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:gestion_budgetaire_app/backend/model/account.dart';
 import 'package:http/http.dart'as http;
 
-
 import '../../../app_engine/app_share_preference.dart';
+import '../../model/account.dart';
 import '../../url.dart';
 
-part 'useraccount_event.dart';
-part 'useraccount_state.dart';
+part 'usersavingsbank_event.dart';
+part 'usersavingsbank_state.dart';
 
-class UseraccountBloc extends Bloc<UseraccountEvent, UseraccountState> {
-  UseraccountBloc() : super(UseraccountInitial()) {
-    on<UseraccountEvent>((event, emit) {
+class UsersavingsbankBloc extends Bloc<UsersavingsbankEvent, UsersavingsbankState> {
+  UsersavingsbankBloc() : super(UsersavingsbankInitial()) {
+    on<UsersavingsbankEvent>((event, emit) {
       // TODO: implement event handler
     });
 
-    on<UseraccountGettingEvent>((event, emit) async {
-      await getuseraccount(event, emit);
+    on<UsersavingsbankGettingEvent>((event, emit) async {
+      await getUserSavingBank(event, emit);
     });
-
-
-    }
-      getuseraccount(UseraccountGettingEvent event, Emitter<UseraccountState> emit)async{
-        emit(UseraccountGettingState());
+  }
+  
+  getUserSavingBank(UsersavingsbankGettingEvent event, Emitter emit) async{
+      emit(UsersavingsbankGettingState());
       
         try {
           var token = await getString("tokens");
           final response = await http.get(
-          Uri.parse(UrlAPI.useraccount),
+          Uri.parse(UrlAPI.usersavingbank),
           headers : <String, String> {
             'Content-Type': 'application/json',
             "Authorization": "Bearer $token"
@@ -40,10 +38,10 @@ class UseraccountBloc extends Bloc<UseraccountEvent, UseraccountState> {
           
           print("response.body : ${response.body}");
           var data = json.decode(response.body);
-          var useraccount = Account.fromJson(data[0]);
+          var usersavingbank = SavingsBank.fromJson(data[0]);
           
-          emit(UseraccountGottenState(useraccount));
-          print("useraccount : $useraccount");
+          emit(UsersavingsbankGottenState(usersavingbank));
+          print("useraccount : $usersavingbank");
         } else {
           print("response.body : ${response.body}");
           print("response.statusCode : ${response.statusCode}");
@@ -52,6 +50,4 @@ class UseraccountBloc extends Bloc<UseraccountEvent, UseraccountState> {
           print("e : $e");
         }
       }
-
 }
-
