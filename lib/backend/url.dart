@@ -22,5 +22,7 @@ static const deletetransac = "$host/deletetransac";
 static const useraccount = "$host/user_account";
 static const updatesold = "$host/updatesold";
 static const convertamount = "$host/convertamount";
+static const transfertosold = "$host/transfer_to_sold";
+static const usertransfers = "$host/user_transfers";
 
 }
