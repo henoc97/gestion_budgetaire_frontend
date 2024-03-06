@@ -40,7 +40,7 @@ class UsertransfersBloc extends Bloc<UsertransfersEvent, UsertransfersState> {
         print("response.body : ${response.body}");
         var data = json.decode(response.body);
         List<Transfer> dataList = [];
-        for (var element in data["message"]) {
+        for (var element in data) {
           dataList.add(Transfer.fromJson(element));
         }
         emit(UsertransfersGottenState(dataList));

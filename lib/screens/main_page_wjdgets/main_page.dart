@@ -7,6 +7,7 @@ import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import '../../app_engine/app_engine.dart';
 import '../../app_engine/app_localizations.dart';
 import 'widgets/account_page/account_page.dart';
+import 'widgets/calendar/topcalendar.dart';
 import 'widgets/exchange_currency_widget/exchange_currency_page.dart';
 import 'widgets/home_page_widgets/home_page.dart';
 import 'widgets/objectif_savings_widgets/objectif_savings_page.dart';
@@ -94,20 +95,29 @@ class _MainPageState extends State<MainPage> {
           ),
         ),
 
-        Row(
-          children: [
-            const Icon(Icons.calendar_month_outlined),
-            Text("  ${DateTime.now().toIso8601String().split('T')[0]}", 
-            style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["less"], color: appEngine.myColors["myBlack"]),
-
-            ),
-          ],
+        Padding(
+          padding: const EdgeInsets.only(left : 5.0, right: 5.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(bigTitles[currentIndex], 
+                style: TextStyle(fontFamily: appEngine.myFontfamilies["st"],
+                  fontWeight: FontWeight.bold,
+                  fontSize: appEngine.myFontSize["hintText"], 
+                  color: appEngine.myColors["myBlack"]),),
+          
+              Text("  ${DateTime.now().month} - ${DateTime.now().year}", 
+              style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], 
+              fontWeight: FontWeight.bold,
+              fontSize: appEngine.myFontSize["hintText"], 
+              color: appEngine.myColors["myGreen1"]),),
+            ],
+          ),
         ),
-         Text(bigTitles[currentIndex], 
-         style: TextStyle(fontFamily: appEngine.myFontfamilies["st"],
-          fontWeight: FontWeight.bold,
-          fontSize: appEngine.myFontSize["textInButton"], 
-          color: appEngine.myColors["myBlack"]),),
+        SizedBox( height: 68.h,
+          child: const WeekdayButtons()),
+        
+         
 
         Expanded(child:currentIndex == 2? 
         const HomePage():

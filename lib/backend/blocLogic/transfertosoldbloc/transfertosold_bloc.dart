@@ -35,7 +35,7 @@ class TransfertosoldBloc extends Bloc<TransfertosoldEvent, TransfertosoldState> 
          Uri.parse(UrlAPI.transfertosold),
         headers : <String, String> {
           'Content-Type': 'application/json',
-          "Authoriza,tion": "Bearer $token"
+          "Authorization": "Bearer $token"
         },
         body: jsonEncode(datatopost),
       );

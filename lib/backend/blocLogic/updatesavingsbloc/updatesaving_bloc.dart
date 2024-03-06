@@ -37,7 +37,7 @@ class UpdatesavingBloc extends Bloc<UpdatesavingEvent, UpdatesavingState> {
          Uri.parse(UrlAPI.updateallsavings),
         headers : <String, String> {
           'Content-Type': 'application/json',
-          "Authori,zation": "Bearer $token"
+          "Authorization": "Bearer $token"
         },
         body: jsonEncode(datatopost),
       );

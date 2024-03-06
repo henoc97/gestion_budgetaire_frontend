@@ -9,7 +9,7 @@ class Account{
   factory Account.fromJson(Map<String, dynamic> json) {
     return Account(
       json["id"],
-      json["amount"],
+      json["sold"],
     );
   }
 
@@ -31,7 +31,7 @@ class SavingsBank{
   factory SavingsBank.fromJson(Map<String, dynamic> json) {
     return SavingsBank(
       json["id"],
-      json["amount"],
+      json["sold"],
     );
   }
 

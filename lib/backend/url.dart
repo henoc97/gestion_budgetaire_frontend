@@ -2,7 +2,7 @@
 class UrlAPI{
   
 //192.168.137.1
-static const host = "http://10.0.0.98:3000/userapi";
+static const host = "http://192.168.1.68:3000/userapi";
 static const createUser = "$host/createUser";
 
 static const userauth = "$host/userauth";

@@ -37,15 +37,14 @@ class SavingTile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
               SizedBox(
-                width: size.width*.4,
+                width: size.width*.5,
                 child: Text("${savings.targetamount} ${VarGloabal.favoritecurrencySymbol}", style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["hintText"],  fontWeight: FontWeight.bold, color: appEngine.myColors["myGreen1"]),)),
               SizedBox(
-                width: size.width*.4,
+                width: size.width*.5,
                 child: Text("${savings.goal} ", style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["hintText"],  fontWeight: FontWeight.bold, color: appEngine.myColors["mygrey"]),)),
               ],
             ),
-            IconButton(onPressed: (){}, 
-            icon: const FaIcon(FontAwesomeIcons.penToSquare))
+            
           ],
         ),
 

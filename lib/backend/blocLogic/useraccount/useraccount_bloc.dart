@@ -40,7 +40,7 @@ class UseraccountBloc extends Bloc<UseraccountEvent, UseraccountState> {
           
           print("response.body : ${response.body}");
           var data = json.decode(response.body);
-          var useraccount = Account.fromJson(data[0]);
+          var useraccount = Account.fromJson(data);
           
           emit(UseraccountGottenState(useraccount));
           print("useraccount : $useraccount");

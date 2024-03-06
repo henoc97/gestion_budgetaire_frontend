@@ -20,7 +20,7 @@ class Users{
       json["id"],
       json["fstName"].toString(),
       json["lastName"].toString(),
-      json["mailAddress"].toString() ,
+      json["mailAdress"].toString() ,
       "0000",
       json["favoriteCurrency"].toString(),
     );

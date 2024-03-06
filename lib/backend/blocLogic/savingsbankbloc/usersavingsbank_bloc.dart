@@ -38,7 +38,7 @@ class UsersavingsbankBloc extends Bloc<UsersavingsbankEvent, UsersavingsbankStat
           
           print("response.body : ${response.body}");
           var data = json.decode(response.body);
-          var usersavingbank = SavingsBank.fromJson(data[0]);
+          var usersavingbank = SavingsBank.fromJson(data);
           
           emit(UsersavingsbankGottenState(usersavingbank));
           print("useraccount : $usersavingbank");

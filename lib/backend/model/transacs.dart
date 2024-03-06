@@ -34,16 +34,16 @@ class Transfer{
   int id;
   num amount;
   String descriptions;
-  DateTime registereddate;
+  DateTime transfertime;
 
-  Transfer(this.id, this.amount, this.descriptions, this.registereddate);
+  Transfer(this.id, this.amount, this.descriptions, this.transfertime);
 
   factory Transfer.fromJson(Map<String, dynamic> json) {
     return Transfer(
       json["id"],
       json["amount"],
-      json["descriptions"].toString(),
-      DateTime.parse(json["registerdate"])
+      json["descriptions"],
+      DateTime.parse(json["transfertime"])
     );
   }
 

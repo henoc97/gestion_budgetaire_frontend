@@ -32,17 +32,7 @@ class _CircularPercentObjectifState extends State<CircularPercentObjectif> {
                 animation: true,
                 animationDuration:2000,
                 percent: (widget.savings.allsavings/widget.savings.targetamount),
-                center:  Center(
-                  child: 
-                    Text(
-                      "${(100*(widget.savings.allsavings/widget.savings.targetamount))
-                      .round().toString()}%",
-                      
-                           style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["hintText"],  fontWeight: FontWeight.bold, color: appEngine.myColors["myBlack"])
-                    ),
-                    
-                  
-                ),
+                
                 
                 circularStrokeCap: CircularStrokeCap.round,
                 linearGradient :  LinearGradient(begin: Alignment.topCenter, 

@@ -4,26 +4,26 @@ import 'package:gestion_budgetaire_app/app_engine/date_formatter.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 import '../../../../../app_engine/app_engine.dart';
-import '../../../../../app_engine/app_localizations.dart';
-import '../../../../../app_engine/vargloabal.dart';
-import '../../../../../backend/model/budget.dart';
+import '../../../../app_engine/app_localizations.dart';
+import '../../../../app_engine/vargloabal.dart';
+import '../../../../backend/model/savings.dart';
 
 
-class MyCircularPercentIndicator extends StatelessWidget {
-  const MyCircularPercentIndicator({
+class ObjectifPercentIndicator extends StatelessWidget {
+  const ObjectifPercentIndicator({
     super.key,
-    required this.budget
+    required this.savings,
   });
-  final Budget budget;
+  final Savings savings;
   
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    AppLocalizations? lang = AppLocalizations(); //.of(context);
     AppEngine appEngine = AppEngine();
-    var percent = (1 - VarGloabal.budamountrest / budget.budgetamountfix);
-    var percentdate = (periods([budget.begindate, DateTime.now()]) / budget.periods);
+    AppLocalizations? lang = AppLocalizations();
+    var percent = (VarGloabal.allsavings / savings.targetamount);
+    var jjdate = periods([DateTime.now(), savings.reachgoaldate]) - 1;
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -58,29 +58,18 @@ class MyCircularPercentIndicator extends StatelessWidget {
               ),
           ),
 
-          Container(margin: const EdgeInsets.only(top: 15),
-            height: size.height*.15, width: size.width*.65,
+          Container(margin: const EdgeInsets.only(top: 20),
+             width: size.width*.65,
             child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Row(
+                 Row( mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("${periods([budget.begindate, DateTime.now()])} jrs", style:TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["moreless"],  fontWeight: FontWeight.bold, color: appEngine.myColors["myBlack"])),
-                    LinearPercentIndicator(
-                    width: MediaQuery.of(context).size.width*.45,
-                    animation: true,
-                    lineHeight: 16.sp,
-                    animationDuration: 2000,
-                    percent: percentdate<0?0: percentdate<1?percentdate : 1,
-                    linearGradient :  LinearGradient(begin: Alignment.topLeft, 
-                                end: Alignment.topRight, 
-                                colors: [appEngine.myColors['myGreen1']! , appEngine.myColors['myGreen2']!, appEngine.myColors['myGreen3']! ],),
-                    center: Text("${(percentdate * 100).toStringAsFixed(1)} %", style:TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["moreless"],  fontWeight: FontWeight.bold, color: appEngine.myColors["myBlack"])),
-                    barRadius: appEngine.myRaduis["10raduis"]
-                    
-                    
-                    ),
-
-                    Text("${budget.periods} jrs", style:TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["moreless"],  fontWeight: FontWeight.bold, color: appEngine.myColors["myBlack"])),
+                    Text(" ${lang.jj.substring(0, 1)}${lang.jj.substring(0, 1)} -  ", 
+                    style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], 
+                    fontSize: appEngine.myFontSize["hintText"],  
+                    fontWeight: FontWeight.bold, color: appEngine.myColors["myGreen1"]),),
+                    for ( var var_name =  0; var_name  < jjdate.toString().length; var_name++ )
+                    Jjdatecard(numdate: jjdate.toString()[var_name],),
                   ],
                 ),
 
@@ -93,6 +82,44 @@ class MyCircularPercentIndicator extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class Jjdatecard extends StatelessWidget {
+  const Jjdatecard({
+    super.key,
+    required this.numdate
+  });
+  final String numdate;
+
+  @override
+  Widget build(BuildContext context) {
+    AppEngine appEngine = AppEngine();
+    return Padding(
+      padding: const EdgeInsets.all(3.0),
+      child: Container(
+        width: 41.h,
+        height: 65.w,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 1,
+              blurRadius: 5,
+              offset: const Offset(0, 3),
+            ),
+          ],
+        ),
+        child: Center(
+          child: Text( numdate,
+              style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], 
+                    fontSize: appEngine.myFontSize["hintText"],  
+                    fontWeight: FontWeight.bold, color: appEngine.myColors["myGreen1"]),),
+            ),
+        )
     );
   }
 }

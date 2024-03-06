@@ -64,7 +64,15 @@ class AppLocalizations{
 
   String get mainPagesubTitle => Intl.message("Budgets récents", name : "mainPagesubTitle");
 
-
+  //top calendar
+  String get monday => Intl.message("Lundi", name : "monday");
+  String get tuesday => Intl.message("Mardi", name : "tuesday");
+  String get wednesday => Intl.message("Mercredi", name : "wednesday");
+  String get thursday => Intl.message("Jeudi", name : "thursday");
+  String get friday => Intl.message("Vendredi", name : "friday");
+  String get saturday => Intl.message("Samedi", name : "Saturday");
+  String get sunday => Intl.message("Dimanche", name : "Sunday");
+  
   //make budget page
   String get makebudgetText => Intl.message("Allez y, inscrivez-vous", name : "makebudgetText");
   String get budgetName => Intl.message("Entrez le nom du budget", name : "budgetName");
@@ -90,10 +98,23 @@ class AppLocalizations{
   String get goal => Intl.message("L'objectif de cette économie", name : "goal");
   String get targetAmount => Intl.message("Montant cîblé", name : "targetAmount");
   String get reachGoalDate => Intl.message("La date pour atteindre l'objectif", name : "reachGoalDate");
- 
+  // home savings
+  String get addamounttoallsavings => Intl.message("La somme", name : "addamounttoallsavings");
+  String get addtoallsavings => Intl.message("Ajouter", name : "addtoallsavings");
+  String get jj => Intl.message("Jour", name : "jj");
+
   // Account page
   String get bankname => Intl.message("Compte de : ", name : "bankname");
+  String get savingbankname => Intl.message("Compte d'épargne : ", name : "savingbankname");
   String get sold => Intl.message("sold :", name : "sold");
+  String get email1 => Intl.message("email :", name : "email1");
+  String get budgettotal => Intl.message("Budget total :", name : "budgettotal");
+  String get transfer => Intl.message("Virement", name : "transfer");
+  String get transferamount => Intl.message("Montant du transfert", name : "transferamount");
+  String get mytranfers => Intl.message("Mes transferts", name : "mytranfers");
+
+
+
   // Exchange Currency Page
   String get amountToExchange => Intl.message("Le montant à convertir 1", name : "amountToExchange");
   String get currencyToExchange => Intl.message("€", name : "currencyToExchange");
