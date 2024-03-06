@@ -59,13 +59,20 @@ class _ExchangeCurrencyPageState extends State<ExchangeCurrencyPage> {
               Stack(
                 children: [
                   Column(
+                    
                     children: [
                       Container(
                         height: size.height * .03,
                       ),
+                      ContainerDesign(),
+                      Container(
+                        height: size.height * .01,
+                      ),
+                      
+                      ContainerDesign(),
                       SizedBox(
-                          height: 150.h,
-                          width: 150.w,
+                          height: 15.h,
+                          width: 15.w,
                           child: Image.asset(
                             "assets/img/exc_currency.png",
                             color: appEngine.myColors['myGreen1'],
@@ -143,5 +150,90 @@ class _ExchangeCurrencyPageState extends State<ExchangeCurrencyPage> {
         );
       },
     );
+  }
+}
+
+class ContainerDesign extends StatelessWidget {
+  const ContainerDesign({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Container(
+          width: 400,
+          height: 170,
+          //color: Colors.amber,
+          child: Center(
+            child: Container(
+              width: 300,
+              height: 120,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                color: Colors.red,
+                //shape: BoxShape.circle
+                                        ),
+              
+              child: Center(
+                child: Text(
+                  'Bowtie',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ),
+          ),
+        ),
+        Container(
+          height: 170,
+          child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Center(
+                child: Container(
+                height: 50,
+                width: 100,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                color:  Colors.white,
+                //shape: BoxShape.circle
+                                        ),
+                                      ),
+              ),
+          
+              Center(
+                child: Container(
+                height: 50,
+                width: 100,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                color:  Colors.white,
+                //shape: BoxShape.circle
+                                        ),
+                                      ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+class FigureEightClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    var path = Path();
+    path.moveTo(size.width / 2, 0);
+    path.quadraticBezierTo(size.width, 0, size.width, size.height / 2);
+    path.quadraticBezierTo(size.width, size.height, size.width / 2, size.height);
+    path.quadraticBezierTo(0, size.height, 0, size.height / 2);
+    path.quadraticBezierTo(0, 0, size.width / 2, 0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return false;
   }
 }
