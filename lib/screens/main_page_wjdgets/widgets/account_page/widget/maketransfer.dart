@@ -69,7 +69,7 @@ class _MakeTransferState extends State<MakeTransfer> {
                             height: 300.h,
                             width: 300.w,
                             child: SvgPicture.asset(
-                              "assets/svg/make_budget.svg",
+                              "assets/svg/transfer.svg",
                             ),
                           ),
                         ),
