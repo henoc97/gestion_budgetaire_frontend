@@ -39,12 +39,20 @@ class UsersavingsBloc extends Bloc<UsersavingsEvent, UsersavingsState> {
         
         print("response.body : ${response.body}");
         var data = json.decode(response.body);
-        List<Savings> dataList = [];
+        List<Savings> notbeginlist = [];
+        List<Savings> inprogresslist = [];
+        List<Savings> terminedlist = [];
         for (var element in data["message"]) {
-          dataList.add(Savings.fromJson(element));
+          var currentsaving = Savings.fromJson(element);
+          if (currentsaving.allsavings == 0) {
+            notbeginlist.add(currentsaving);
+          } else if (currentsaving.allsavings > 0 && currentsaving.allsavings < currentsaving.targetamount){
+            inprogresslist.add(currentsaving);
+          }else {
+            terminedlist.add(currentsaving);
+          }
         }
-        emit(UsersavingsGottenState(dataList));
-        print("dataList : $dataList");
+        emit(UsersavingsGottenState(notbeginlist, inprogresslist, terminedlist));
       } else {
         print("response.body : ${response.body}");
         print("response.statusCode : ${response.statusCode}");

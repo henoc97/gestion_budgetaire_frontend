@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gestion_budgetaire_app/app_engine/vargloabal.dart';
 
 import '../../../../../app_engine/app_engine.dart';
@@ -28,16 +29,12 @@ class _BudgetListTileState extends State<BudgetListTile> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.all(5.0),
-                        child: Container(
-                          
-                          width: size.width*.2,
-                          decoration: BoxDecoration(
-                            image: const DecorationImage(image: AssetImage("assets/img/budget_tile.jpg"), fit: BoxFit.contain),
-                            borderRadius: appEngine.myRaduis["10"], ),
-                          child: Center(child: 
-                          Text(widget.budget.categoryname.substring(0, 3), 
-                          style: TextStyle(fontFamily: appEngine.myFontfamilies["nd"], fontWeight: FontWeight.bold, color: appEngine.myColors["mygrey"], fontSize: appEngine.myFontSize["more"]),)),
+                        child:  SizedBox(
+                        width: size.width*.2,
+                        child: SvgPicture.asset(
+                          "assets/svg/make_budget.svg",
                         ),
+                      ),
                       ),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,

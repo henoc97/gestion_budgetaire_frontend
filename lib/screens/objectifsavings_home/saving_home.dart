@@ -47,7 +47,7 @@ class _SavingHomePageState extends State<SavingHomePage> {
                             bottomRight: appEngine.myRaduis["10raduis"],
                             bottomLeft: appEngine.myRaduis["10raduis"]),
                         image: const DecorationImage(
-                            image: AssetImage("assets/img/budget_home.jpg"),
+                            image: AssetImage("assets/img/savings.jpg"),
                             fit: BoxFit.cover)),
                   ),
                   Padding(
@@ -84,7 +84,7 @@ class _SavingHomePageState extends State<SavingHomePage> {
                             Container(
                               margin: EdgeInsets.only(top: 10.sp),
                               height: size.height * .1,
-                              width: size.width * .45,
+                              //width: size.width * .45,
                               decoration: BoxDecoration(
                                   color: Colors.white.withOpacity(0.6),
                                   borderRadius: BorderRadius.all(

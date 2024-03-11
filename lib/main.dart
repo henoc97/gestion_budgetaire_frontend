@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/date_symbol_data_local.dart'; 
 
 import 'backend/blocLogic/budgetspendsbloc/budgetspends_bloc.dart';
 import 'backend/blocLogic/exchangebloc/exchange_bloc.dart';
@@ -22,8 +23,9 @@ import 'screens/log_sign_widgets/log_sign_page.dart';
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
-
-  runApp(const MyApp());
+  initializeDateFormatting('fr_FR', null).then((_) {
+    runApp(const MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {

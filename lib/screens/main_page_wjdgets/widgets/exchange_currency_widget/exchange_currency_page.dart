@@ -70,67 +70,59 @@ class _ExchangeCurrencyPageState extends State<ExchangeCurrencyPage> {
                             padding: const EdgeInsets.all(8.0),
                             child: SizedBox(
                               width: size.width,
-                              child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              child: Row(mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   ClipPath(
                                     clipper: FigureEightClipper(),
                                     child: Container(
-                                      color: appEngine.myColors["myBlack"],
-                                      height: 120.h,
-                                      width: 150.w,
+                                      color: appEngine.myColors["myGreen2"],
+                                      height: 170.h,
+                                      width: size.width*.7,
                                       child: Padding(
                                         padding: const EdgeInsets.all(8.0),
-                                        child: Row(
+                                        child: Column(mainAxisAlignment: MainAxisAlignment.center,
                                           children: [
-                                            Center(
-                                              child: Container(
-                                                decoration: BoxDecoration(
-                                                  shape: BoxShape.circle,
-                                                  color: appEngine.myColors["mygrey"]!.withOpacity(0.5)
-                                                ),
-                                                child: Padding(
-                                                  padding: const EdgeInsets.all(8.0),
-                                                  child: Text(" ${currencySymbols[VarGloabal.currenciesList[1]]} ",
-                                                  style: TextStyle(
-                                                    color: appEngine.myColors["myWhite"],
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: appEngine.myFontSize["textInButton"],
-                                                    fontFamily: appEngine.myFontfamilies["st"]),
+                                            Row(
+                                              children: [
+                                                Container(
+                                                  decoration: BoxDecoration(
+                                                    shape: BoxShape.circle,
+                                                    color: appEngine.myColors["mygrey"]!.withOpacity(0.5)
+                                                  ),
+                                                  child: Padding(
+                                                    padding: const EdgeInsets.all(8.0),
+                                                    child: Text(" ${currencySymbols[VarGloabal.currenciesList[1]]} ",
+                                                    style: TextStyle(
+                                                      color: appEngine.myColors["myWhite"],
+                                                      fontWeight: FontWeight.bold,
+                                                      fontSize: appEngine.myFontSize["textInButton"],
+                                                      fontFamily: appEngine.myFontfamilies["st"]),
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
+                                                Text("  ${VarGloabal.currenciesList[1]} ",
+                                                      style: TextStyle(
+                                                        color: appEngine.myColors["myWhite"],
+                                                        fontWeight: FontWeight.bold,
+                                                        fontSize: appEngine.myFontSize["subtitle"],
+                                                        fontFamily: appEngine.myFontfamilies["st"]),
+                                                      ),
+                                              ],
                                             ),
-                                            Text("  ${VarGloabal.currenciesList[1]} ",
-                                                  style: TextStyle(
-                                                    color: appEngine.myColors["myWhite"],
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: appEngine.myFontSize["subtitle"],
-                                                    fontFamily: appEngine.myFontfamilies["st"]),
-                                                  ),
+                                            Text( state is ExchangedState?
+                                              '${state.exchange.amount}  ${currencySymbols[VarGloabal.currenciesList[1]]}' :
+                                              '00.00',
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: appEngine.myFontSize["textInButton"],
+                                                  fontFamily: appEngine.myFontfamilies["st"]),
+                                            ),
                                           ],
                                         ),
                                       ),
                                     ),
                                   ),
-                                  ClipPath(
-                                    clipper: FigureEightClipper(),
-                                    child: Container(
-                                      color: appEngine.myColors["myGreen2"],
-                                      height: 120.h,
-                                      width: 150.w,
-                                      child: Center(
-                                        child: Text( state is ExchangedState?
-                                          '${state.exchange.amount}' :
-                                          '1000000000.00',
-                                          style: TextStyle(
-                                              color: appEngine.myColors["myBlack"],
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: appEngine.myFontSize["subtitle"],
-                                              fontFamily: appEngine.myFontfamilies["st"]),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
+                                  
                                 ],
                               ),
                             ),
@@ -139,94 +131,77 @@ class _ExchangeCurrencyPageState extends State<ExchangeCurrencyPage> {
                             padding: const EdgeInsets.all(8.0),
                             child: SizedBox(
                             width: size.width,
-                            child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
+                               SizedBox(
+                                height: 90.h,
+                                width: 90.w,
+                                child: Image.asset(
+                                  "assets/img/exc_currency.png",
+                                  color: appEngine.myColors['myGreen1'],
+                                )),
                               ClipPath(
                                 clipper: FigureEightClipper(),
                                 child: Container(
                                   color: appEngine.myColors["myGreen2"],
-                                  height: 120.h,
-                                  width: 150.w,
+                                  height: 170.h,
+                                  width: size.width*.7,
                                   child: Padding(
                                         padding: const EdgeInsets.all(8.0),
-                                        child: Row(
+                                        child: Column( mainAxisAlignment: MainAxisAlignment.center,
                                           children: [
-                                            Center(
-                                              child: Container(
-                                                decoration: BoxDecoration(
-                                                  shape: BoxShape.circle,
-                                                  color: appEngine.myColors["myWhite"]!.withOpacity(0.5)
-                                                ),
-                                                child: Padding(
-                                                  padding: const EdgeInsets.all(8.0),
-                                                  child: Text(" ${currencySymbols[VarGloabal.currenciesList[0]]} ",
-                                                  style: TextStyle(
-                                                    color: appEngine.myColors["myBlack"],
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: appEngine.myFontSize["textInButton"],
-                                                    fontFamily: appEngine.myFontfamilies["st"]),
+                                            Row(mainAxisAlignment: MainAxisAlignment.end,
+                                              children: [
+                                                Center(
+                                                  child: Container(
+                                                    decoration: BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                      color: appEngine.myColors["myWhite"]!.withOpacity(0.5)
+                                                    ),
+                                                    child: Padding(
+                                                      padding: const EdgeInsets.all(8.0),
+                                                      child: Text(" ${currencySymbols[VarGloabal.currenciesList[0]]} ",
+                                                      style: TextStyle(
+                                                        color: appEngine.myColors["myBlack"],
+                                                        fontWeight: FontWeight.bold,
+                                                        fontSize: appEngine.myFontSize["textInButton"],
+                                                        fontFamily: appEngine.myFontfamilies["st"]),
+                                                      ),
+                                                    ),
                                                   ),
                                                 ),
+                                                Text("  ${VarGloabal.currenciesList[0]} ",
+                                                      style: TextStyle(
+                                                        color: appEngine.myColors["myBlack"],
+                                                        fontWeight: FontWeight.bold,
+                                                        fontSize: appEngine.myFontSize["subtitle"],
+                                                        fontFamily: appEngine.myFontfamilies["st"]),
+                                                      ),
+                                              ],
+                                            ),
+                                            Container(
+                                              width: size.width *.45,
+                                              child: InputContainer(
+                                                hintText: myHintText[2],
+                                                keyboardType: TextInputType.number,
+                                                controller: controller,
                                               ),
                                             ),
-                                            Text("  ${VarGloabal.currenciesList[0]} ",
-                                                  style: TextStyle(
-                                                    color: appEngine.myColors["myBlack"],
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: appEngine.myFontSize["subtitle"],
-                                                    fontFamily: appEngine.myFontfamilies["st"]),
-                                                  ),
                                           ],
                                         ),
                                       ),
                                 ),
                               ),
-                              ClipPath(
-                                clipper: FigureEightClipper(),
-                                child: Container(
-                                  color: appEngine.myColors["myBlack"],
-                                  height: 120.h,
-                                  width: 150.w,
-                                  child: Center(
-                                        child: Text( controller.text,
-                                          style: TextStyle(
-                                              color: appEngine.myColors["myWhite"],
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: appEngine.myFontSize["subtitle"],
-                                              fontFamily: appEngine.myFontfamilies["st"]),
-                                        ),
-                                      ),
-                                ),
-                              ),
+                              
                             ],
                             ),
                           ),
-                        ),
+                                                  ),
                         ],
                       ),
                       
                       
-                      SizedBox(
-                          height: 15.h,
-                          width: 15.w,
-                          child: Image.asset(
-                            "assets/img/exc_currency.png",
-                            color: appEngine.myColors['myGreen1'],
-                          )),
-                      Container(
-                        height: size.height * .03,
-                      ),
-                       Text( state is ExchangedState?
-                        '${state.exchange.amount}  ${currencySymbols[VarGloabal.currenciesList[1]]}' :
-                         '00.00  ${currencySymbols[VarGloabal.currenciesList[1]]}',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: appEngine.myFontSize["textInButton"],
-                            fontFamily: appEngine.myFontfamilies["st"]),
-                      ),
-                      Container(
-                        height: size.height * .03,
-                      ),
+                      
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [

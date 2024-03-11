@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 
 List<String> formatDate(DateTime date) {
   List<String> dateList = [];
@@ -28,3 +29,13 @@ class DateList00{
   static  List<DateTime?> dateList00 = <DateTime>[];
 }
 
+
+String literalyDate(String inputDate) {
+  DateTime dateTime = DateTime.parse(inputDate);
+  String dayOfWeek = DateFormat('EEEE', 'fr_FR').format(dateTime);
+  String dayOfMonth = DateFormat('dd', 'fr_FR').format(dateTime);
+  String month = DateFormat('MMMM', 'fr_FR').format(dateTime);
+  String year = DateFormat('yyyy').format(dateTime);
+
+  return '${dayOfWeek.substring(0, 3)}, $dayOfMonth $month $year';
+}

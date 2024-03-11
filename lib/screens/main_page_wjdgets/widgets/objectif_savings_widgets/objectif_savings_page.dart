@@ -8,9 +8,10 @@ import '../../../../app_engine/app_transition.dart';
 import '../../../../backend/blocLogic/savingsbankbloc/usersavingsbank_bloc.dart';
 import '../../../../backend/blocLogic/usersavingsbloc/usersavings_bloc.dart';
 import '../../../make_saving_goal_widgets/make_saving_goal.dart';
-import '../../../objectifsavings_home/saving_home.dart';
 import '../account_page/widget/account_card.dart';
-import 'widgets/savingtile.dart';
+import 'widgets/inprogress_oart.dart';
+import 'widgets/notbegin_part.dart';
+import 'widgets/termined_part.dart';
 
 class ObjectifSavings extends StatefulWidget {
   const ObjectifSavings({super.key});
@@ -37,46 +38,51 @@ class _ObjectifSavingsState extends State<ObjectifSavings> {
       builder: (context, savingbankstate) {
         return BlocBuilder<UsersavingsBloc, UsersavingsState>(
           builder: (context, usersavingdstate) {
-            return Column(
-              children: [
-                savingbankstate is UsersavingsbankGottenState?
-                AccountCard(account: savingbankstate.usersavingbank, accountname: lang.savingbankname, nextPage: Container(),)
-                :Container(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    IconButton(
-                      icon: FaIcon(
-                        FontAwesomeIcons.plus,
-                        color: appEngine.myColors['myGreen1'],
-                      ),
-                      onPressed: () {
-                        AppTransition.standardGoTo(
-                            context, const MakeSavingGoal());
-                      },
-                    ),
-                  ],
-                ),
-                usersavingdstate is UsersavingsGottenState
-                    ? Expanded(
-                        child: ListView.builder(
-                          itemCount: usersavingdstate.savingsList.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return GestureDetector(
-                              onTap: () {
-                                AppTransition.standardGoTo(context, SavingHomePage(savings: usersavingdstate.savingsList[index],));
-                              },
-                              child: SavingTile(
-                                savings: usersavingdstate.savingsList[index],
-                              ),
-                            );
+            return SingleChildScrollView(
+              child: Column(
+                children: [
+                  savingbankstate is UsersavingsbankGottenState?
+                  AccountCard(account: savingbankstate.usersavingbank, accountname: lang.savingbankname, nextPage: Container(),)
+                  :Container(),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(lang.inprogress, 
+                          style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], 
+                          fontSize: appEngine.myFontSize["hintText"],  fontWeight: FontWeight.bold, 
+                          color: appEngine.myColors["myGreen1"]),),
+                        IconButton(
+                          icon: FaIcon(
+                            FontAwesomeIcons.plus,
+                            color: appEngine.myColors['myGreen1'],
+                          ),
+                          onPressed: () {
+                            AppTransition.standardGoTo(
+                                context, const MakeSavingGoal());
                           },
                         ),
-                      )
-                    : CircularProgressIndicator(
-                        color: appEngine.myColors["myGreen1"],
-                      )
-              ],
+                      ],
+                    ),
+                  ),
+                  usersavingdstate is UsersavingsGottenState? Column(
+                    children: [
+                      InProgressPart(savingsList: usersavingdstate.inprogressSavingsList,),
+                      
+                        
+                      NotBeginPart(savingsList: usersavingdstate.notBeginSavingsList,),
+                    
+                          
+                      TerminedPart(savingsList: usersavingdstate.terminedSavingsList,),
+                  
+                    ],
+                  ) : CircularProgressIndicator(
+                    color: appEngine.myColors["myGreen1"],
+                  )
+                    
+                ],
+              ),
             );
           },
         );

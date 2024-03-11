@@ -102,6 +102,11 @@ class AppLocalizations{
   String get addamounttoallsavings => Intl.message("La somme", name : "addamounttoallsavings");
   String get addtoallsavings => Intl.message("Ajouter", name : "addtoallsavings");
   String get jj => Intl.message("Jour", name : "jj");
+  String get inprogress => Intl.message("En cours", name : "inprogress");
+  String get notbegin => Intl.message("Pas commencé", name : "notbegin");
+  String get termined => Intl.message("Terminé", name : "termined");
+
+
 
   // Account page
   String get bankname => Intl.message("Compte de : ", name : "bankname");
