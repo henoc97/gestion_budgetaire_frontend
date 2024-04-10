@@ -16,4 +16,7 @@ final class UsersavingsbankGottenState extends UsersavingsbankState {
   final SavingsBank usersavingbank;
 }
 
-final class UsersavingsbankGettingErrorState extends UsersavingsbankState {}
+final class UsersavingsbankGettingErrorState extends UsersavingsbankState {
+  final String message;
+  const UsersavingsbankGettingErrorState(this.message);
+}

@@ -12,4 +12,7 @@ final class BudgetspendsGottenState extends BudgetspendsState {
   BudgetspendsGottenState(this.spendsList);
 }
 
-final class BudgetspendsGettingErrorState extends BudgetspendsState {}
+final class BudgetspendsGettingErrorState extends BudgetspendsState {
+  final String message;
+  BudgetspendsGettingErrorState(this.message);
+}

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/date_symbol_data_local.dart'; 
 
+import 'app_engine/app_localizations.dart';
 import 'backend/blocLogic/budgetspendsbloc/budgetspends_bloc.dart';
 import 'backend/blocLogic/exchangebloc/exchange_bloc.dart';
 import 'backend/blocLogic/makebudgetbloc/makebudget_bloc.dart';
@@ -91,12 +93,12 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         
-        // localizationsDelegates: const [
-        
-        //   GlobalCupertinoLocalizations.delegate,
-        //   GlobalMaterialLocalizations.delegate,
-        //   GlobalWidgetsLocalizations.delegate
-        // ],
+        localizationsDelegates:  [
+          //AppLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate
+         ],
         
         supportedLocales: const [
           Locale('en', 'US'),

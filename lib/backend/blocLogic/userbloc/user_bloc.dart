@@ -7,6 +7,8 @@ import 'package:gestion_budgetaire_app/backend/url.dart';
 import 'package:http/http.dart'as http;
 import 'package:equatable/equatable.dart';
 
+import '../../../app_engine/app_localizations.dart';
+
 
 part 'user_event.dart';
 part 'user_state.dart';
@@ -25,6 +27,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   }
   createUser(UserEventCreating event, Emitter<UserState> emit)async{
       emit(UserCreatingState());
+      AppLocalizations? lang = AppLocalizations();
       var datatopost = event.users.toJson();
       datatopost["sold"] = event.sold;
       try {
@@ -40,8 +43,9 @@ class UserBloc extends Bloc<UserEvent, UserState> {
         print("response.body : ${response.body}");
 
       } else {
-         print("response.body : ${response.body}");
+        print("response.body : ${response.body}");
         print("response.statusCode : ${response.statusCode}");
+        emit(UserCreatingErrorState(lang.errorMessage));
       }
       } catch (e) {
         print("e : $e");

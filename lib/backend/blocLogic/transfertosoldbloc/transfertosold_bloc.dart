@@ -5,6 +5,7 @@ import 'package:equatable/equatable.dart';
 import 'package:http/http.dart'as http;
 
 
+import '../../../app_engine/app_localizations.dart';
 import '../../../app_engine/app_share_preference.dart';
 import '../../model/transacs.dart';
 import '../../url.dart';
@@ -25,7 +26,7 @@ class TransfertosoldBloc extends Bloc<TransfertosoldEvent, TransfertosoldState> 
   
   doingtransfer(TransfertosoldDoingEvent event, Emitter emit)async {
     emit(TransfertosoldDoingState());
-
+    AppLocalizations? lang = AppLocalizations();
     var datatopost = event.transfer.toJson();
     var token = await getString("tokens");
     print(datatopost);
@@ -45,8 +46,9 @@ class TransfertosoldBloc extends Bloc<TransfertosoldEvent, TransfertosoldState> 
         emit(TransfertosoldDoneState());
 
       } else {
-         print("response.body : ${json.decode(response.body)}");
+        print("response.body : ${json.decode(response.body)}");
         print("response.statusCode : ${response.statusCode}");
+        emit(TransfertosoldDoingErrorState(lang.errorMessage));
       }
       } catch (e) {
         print("e : $e");

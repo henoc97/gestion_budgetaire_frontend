@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:http/http.dart'as http;
 
+import '../../../app_engine/app_localizations.dart';
 import '../../../app_engine/app_share_preference.dart';
 import '../../url.dart';
 
@@ -24,7 +25,7 @@ class UpdatesavingBloc extends Bloc<UpdatesavingEvent, UpdatesavingState> {
   
   updatesaving(UpdatingsavingEvent event, Emitter emit) async {
     emit(UpdatingsavingState());
-
+    AppLocalizations? lang = AppLocalizations();
     var datatopost = {
       "idsaving" : event.idsaving,
       "amount" : event.amount
@@ -47,8 +48,9 @@ class UpdatesavingBloc extends Bloc<UpdatesavingEvent, UpdatesavingState> {
         emit(UpdatedsavingState());
 
       } else {
-         print("response.body : ${json.decode(response.body)}");
+        print("response.body : ${json.decode(response.body)}");
         print("response.statusCode : ${response.statusCode}");
+        emit(UpdatingsavingErrorState(lang.errorMessage));
       }
       } catch (e) {
         print("e : $e");

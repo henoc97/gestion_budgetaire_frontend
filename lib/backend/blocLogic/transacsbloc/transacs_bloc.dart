@@ -5,6 +5,7 @@ import 'package:meta/meta.dart';
 import 'package:http/http.dart'as http;
 
 
+import '../../../app_engine/app_localizations.dart';
 import '../../../app_engine/app_share_preference.dart';
 import '../../model/transacs.dart';
 import '../../url.dart';
@@ -25,6 +26,7 @@ class TransacsBloc extends Bloc<TransacsEvent, TransacsState> {
   
   doingtransacs(TransacsdoingEvent event, Emitter emit) async{
     emit(TransacsdoingState());
+    AppLocalizations? lang = AppLocalizations();
     var datatopost = event.transacs.toJson();
     var token = await getString("tokens");
     print(datatopost);
@@ -46,6 +48,7 @@ class TransacsBloc extends Bloc<TransacsEvent, TransacsState> {
       } else {
          print("response.body : ${json.decode(response.body)}");
         print("response.statusCode : ${response.statusCode}");
+        emit(TransacsErrorState(lang.errorMessage));
       }
       } catch (e) {
         print("e : $e");

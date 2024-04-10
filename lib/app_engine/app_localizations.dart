@@ -121,7 +121,7 @@ class AppLocalizations{
 
 
   // Exchange Currency Page
-  String get amountToExchange => Intl.message("Le montant à convertir 1", name : "amountToExchange");
+  String get amountToExchange => Intl.message("Le montant à convertir ", name : "amountToExchange");
   String get currencyToExchange => Intl.message("€", name : "currencyToExchange");
   String get amountAfterExchange => Intl.message("Montant obtenu 1,24", name : "amountAfterExchange");
   String get currencyExchangeInto => Intl.message("\$", name : "currencyExchangeInto");
@@ -135,8 +135,11 @@ class AppLocalizations{
   String get oceanie => Intl.message("océanie", name : "oceanie");
 
   // budget tile
-    String get dateExpired => Intl.message("Date expirée", name : "dateExpired");
+  String get dateExpired => Intl.message("Date expirée", name : "dateExpired");
 
+
+  // error state
+  String get errorMessage => Intl.message("une erreur s' est produite. Veillez réessayer plus tard", name : "errorMessage");
 
 }
 

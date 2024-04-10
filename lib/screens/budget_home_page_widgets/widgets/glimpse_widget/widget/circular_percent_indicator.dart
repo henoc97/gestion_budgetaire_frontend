@@ -74,7 +74,8 @@ class MyCircularPercentIndicator extends StatelessWidget {
                     linearGradient :  LinearGradient(begin: Alignment.topLeft, 
                                 end: Alignment.topRight, 
                                 colors: [appEngine.myColors['myGreen1']! , appEngine.myColors['myGreen2']!, appEngine.myColors['myGreen3']! ],),
-                    center: Text("${(percentdate * 100).toStringAsFixed(1)} %", style:TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["moreless"],  fontWeight: FontWeight.bold, color: appEngine.myColors["myBlack"])),
+                    center: Text((percentdate>=0 &&  percentdate<=100)?
+                    "${(percentdate * 100).toStringAsFixed(1)} %" : "0.0%", style:TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["moreless"],  fontWeight: FontWeight.bold, color: appEngine.myColors["myBlack"])),
                     barRadius: appEngine.myRaduis["10raduis"]
                     
                     

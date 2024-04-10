@@ -13,4 +13,7 @@ final class TransfertosoldDoingState extends TransfertosoldState {}
 
 final class TransfertosoldDoneState extends TransfertosoldState {}
 
-final class TransfertosoldDoingErrorState extends TransfertosoldState {}
+final class TransfertosoldDoingErrorState extends TransfertosoldState {
+  final String message;
+  const TransfertosoldDoingErrorState(this.message);
+}

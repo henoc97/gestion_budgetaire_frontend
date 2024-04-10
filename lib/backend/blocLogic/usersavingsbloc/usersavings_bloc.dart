@@ -7,6 +7,7 @@ import 'package:http/http.dart'as http;
 
 
 
+import '../../../app_engine/app_localizations.dart';
 import '../../../app_engine/app_share_preference.dart';
 import '../../url.dart';
 
@@ -25,7 +26,7 @@ class UsersavingsBloc extends Bloc<UsersavingsEvent, UsersavingsState> {
   
   getusersavings(UsersavingsgettingEvent event , Emitter emit) async{
     emit(UsersavingsgettingState());
-      
+    AppLocalizations? lang = AppLocalizations();
       try {
         var token = await getString("tokens");
         final response = await http.get(
@@ -56,6 +57,7 @@ class UsersavingsBloc extends Bloc<UsersavingsEvent, UsersavingsState> {
       } else {
         print("response.body : ${response.body}");
         print("response.statusCode : ${response.statusCode}");
+        emit(UsersavingsgettingErrorState(lang.errorMessage));
       }
       } catch (e) {
         print("e : $e");

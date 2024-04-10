@@ -5,6 +5,7 @@ import 'package:equatable/equatable.dart';
 import 'package:gestion_budgetaire_app/backend/model/savings.dart';
 import 'package:http/http.dart'as http;
 
+import '../../../app_engine/app_localizations.dart';
 import '../../../app_engine/app_share_preference.dart';
 import '../../url.dart';
 
@@ -23,7 +24,7 @@ class MakesavingsBloc extends Bloc<MakesavingsEvent, MakesavingsState> {
   
   createSaving(MakingsavingsEvent event, Emitter emit) async {
     emit(MakingsavingState());
-
+    AppLocalizations? lang = AppLocalizations();
     var datatopost = event.savings.toJson();
     var token = await getString("tokens");
     print(datatopost);
@@ -43,8 +44,9 @@ class MakesavingsBloc extends Bloc<MakesavingsEvent, MakesavingsState> {
         emit(MakedsavingState());
 
       } else {
-         print("response.body : ${json.decode(response.body)}");
+        print("response.body : ${json.decode(response.body)}");
         print("response.statusCode : ${response.statusCode}");
+        emit(MakingsavingErrorState(lang.errorMessage));
       }
       } catch (e) {
         print("e : $e");

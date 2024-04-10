@@ -16,5 +16,8 @@ final class UsertransfersGottenState extends UsertransfersState {
   final List<Transfer> transfers;
 }
 
-final class UsertransfersGettingErrorState extends UsertransfersState {}
+final class UsertransfersGettingErrorState extends UsertransfersState {
+  final String message; 
+  const UsertransfersGettingErrorState(this.message);
+}
 

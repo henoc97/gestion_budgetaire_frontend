@@ -5,6 +5,7 @@ import 'package:equatable/equatable.dart';
 import 'package:gestion_budgetaire_app/backend/model/exchange.dart';
 import 'package:http/http.dart'as http;
 
+import '../../../app_engine/app_localizations.dart';
 import '../../../app_engine/app_share_preference.dart';
 import '../../url.dart';
 
@@ -23,7 +24,7 @@ class ExchangeBloc extends Bloc<ExchangeEvent, ExchangeState> {
   
   performexchange(ExchangingEvent event, Emitter emit)async {
     emit(ExchangingState());
-
+    AppLocalizations? lang = AppLocalizations();
     Map <String, dynamic> datatopost =  {
       'amounttoconvert' : event.amountToExchange, 
       "currencytoconvert" : event.currencies[0], 
@@ -48,6 +49,7 @@ class ExchangeBloc extends Bloc<ExchangeEvent, ExchangeState> {
       } else {
          print("response.body : ${json.decode(response.body)}");
         print("response.statusCode : ${response.statusCode}");
+        emit(ExchangingErrorState(lang.errorMessage));
       }
       } catch (e) {
         print("e : $e");

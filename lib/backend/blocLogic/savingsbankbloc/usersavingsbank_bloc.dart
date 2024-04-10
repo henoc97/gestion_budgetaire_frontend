@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:http/http.dart'as http;
 
+import '../../../app_engine/app_localizations.dart';
 import '../../../app_engine/app_share_preference.dart';
 import '../../model/account.dart';
 import '../../url.dart';
@@ -24,7 +25,7 @@ class UsersavingsbankBloc extends Bloc<UsersavingsbankEvent, UsersavingsbankStat
   
   getUserSavingBank(UsersavingsbankGettingEvent event, Emitter emit) async{
       emit(UsersavingsbankGettingState());
-      
+      AppLocalizations? lang = AppLocalizations();
         try {
           var token = await getString("tokens");
           final response = await http.get(
@@ -45,6 +46,7 @@ class UsersavingsbankBloc extends Bloc<UsersavingsbankEvent, UsersavingsbankStat
         } else {
           print("response.body : ${response.body}");
           print("response.statusCode : ${response.statusCode}");
+          emit(UsersavingsbankGettingErrorState(lang.errorMessage));
         }
         } catch (e) {
           print("e : $e");

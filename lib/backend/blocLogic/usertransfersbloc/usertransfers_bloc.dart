@@ -5,6 +5,7 @@ import 'package:equatable/equatable.dart';
 import 'package:http/http.dart'as http;
 
 
+import '../../../app_engine/app_localizations.dart';
 import '../../../app_engine/app_share_preference.dart';
 import '../../model/transacs.dart';
 import '../../url.dart';
@@ -25,7 +26,8 @@ class UsertransfersBloc extends Bloc<UsertransfersEvent, UsertransfersState> {
   
   getusertransfers(UsertransfersDoingEvent event, Emitter emit)async{
     emit(UsertransfersGettingState());
-      
+    AppLocalizations? lang = AppLocalizations();
+    
       try {
         var token = await getString("tokens");
         final response = await http.get(
@@ -48,6 +50,7 @@ class UsertransfersBloc extends Bloc<UsertransfersEvent, UsertransfersState> {
       } else {
         print("response.body : ${response.body}");
         print("response.statusCode : ${response.statusCode}");
+        emit(UsertransfersGettingErrorState(lang.errorMessage));              
       }
       } catch (e) {
         print("e : $e");

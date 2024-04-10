@@ -16,5 +16,8 @@ final class ExchangedState extends ExchangeState {
   final Exchange exchange;
 }
 
-final class ExchangingErrorState extends ExchangeState {}
+final class ExchangingErrorState extends ExchangeState {
+  final String message;
+  const ExchangingErrorState(this.message);
+}
 

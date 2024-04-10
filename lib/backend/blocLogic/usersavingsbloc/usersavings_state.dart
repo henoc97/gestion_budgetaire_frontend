@@ -21,4 +21,7 @@ final class UsersavingsGottenState extends UsersavingsState {
     this.terminedSavingsList);
 }
 
-final class UsersavingsgettingErrorState extends UsersavingsState {}
+final class UsersavingsgettingErrorState extends UsersavingsState {
+  final String message;
+  const UsersavingsgettingErrorState(this.message);
+}

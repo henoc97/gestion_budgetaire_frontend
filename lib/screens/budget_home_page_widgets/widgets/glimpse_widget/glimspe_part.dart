@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gestion_budgetaire_app/app_engine/vargloabal.dart';
 
 import '../../../../app_engine/app_engine.dart';
 import '../../../../app_engine/app_localizations.dart';
@@ -28,7 +27,6 @@ class _GlimpseState extends State<Glimpse> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     AppLocalizations? lang = AppLocalizations(); //.of(context);
     AppEngine appEngine = AppEngine();
     return BlocBuilder<BudgetspendsBloc, BudgetspendsState>(

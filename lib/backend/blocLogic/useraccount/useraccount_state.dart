@@ -16,4 +16,7 @@ final class UseraccountGottenState extends UseraccountState {
   final Account account;
 }
 
-final class UseraccountGettingErrorState extends UseraccountState {}
+final class UseraccountGettingErrorState extends UseraccountState {
+  final String message;
+  const UseraccountGettingErrorState(this.message);
+}

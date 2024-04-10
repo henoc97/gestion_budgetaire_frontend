@@ -13,4 +13,7 @@ final class UpdatingsavingState extends UpdatesavingState {}
 
 final class UpdatedsavingState extends UpdatesavingState {}
 
-final class UpdatingsavingErrorState extends UpdatesavingState {}
+final class UpdatingsavingErrorState extends UpdatesavingState {
+  final String message;
+  const UpdatingsavingErrorState(this.message);
+}

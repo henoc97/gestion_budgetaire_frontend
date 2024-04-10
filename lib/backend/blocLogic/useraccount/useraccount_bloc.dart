@@ -6,6 +6,7 @@ import 'package:gestion_budgetaire_app/backend/model/account.dart';
 import 'package:http/http.dart'as http;
 
 
+import '../../../app_engine/app_localizations.dart';
 import '../../../app_engine/app_share_preference.dart';
 import '../../url.dart';
 
@@ -26,7 +27,7 @@ class UseraccountBloc extends Bloc<UseraccountEvent, UseraccountState> {
     }
       getuseraccount(UseraccountGettingEvent event, Emitter<UseraccountState> emit)async{
         emit(UseraccountGettingState());
-      
+        AppLocalizations? lang = AppLocalizations();
         try {
           var token = await getString("tokens");
           final response = await http.get(
@@ -47,6 +48,7 @@ class UseraccountBloc extends Bloc<UseraccountEvent, UseraccountState> {
         } else {
           print("response.body : ${response.body}");
           print("response.statusCode : ${response.statusCode}");
+          emit(UseraccountGettingErrorState(lang.errorMessage));
         }
         } catch (e) {
           print("e : $e");

@@ -13,4 +13,7 @@ final class MakingsavingState extends MakesavingsState {}
 
 final class MakedsavingState extends MakesavingsState {}
 
-final class MakingsavingErrorState extends MakesavingsState {}
+final class MakingsavingErrorState extends MakesavingsState {
+  final String message;
+  const MakingsavingErrorState(this.message);
+}

@@ -59,11 +59,7 @@ class _ExchangeCurrencyPageState extends State<ExchangeCurrencyPage> {
               Stack(
                 children: [
                   Column(
-                    
                     children: [
-                      Container(
-                        height: size.height * .03,
-                      ),
                       Column(
                         children: [
                           Padding(
@@ -109,14 +105,30 @@ class _ExchangeCurrencyPageState extends State<ExchangeCurrencyPage> {
                                                       ),
                                               ],
                                             ),
-                                            Text( state is ExchangedState?
-                                              '${state.exchange.amount}  ${currencySymbols[VarGloabal.currenciesList[1]]}' :
-                                              '00.00',
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: appEngine.myFontSize["textInButton"],
-                                                  fontFamily: appEngine.myFontfamilies["st"]),
+                                            Row(mainAxisAlignment: MainAxisAlignment.end,
+                                              children: [
+                                                Container(
+                                                  decoration: BoxDecoration(color:  appEngine.myColors["myWhite"],
+                                                  borderRadius: BorderRadius.circular(10)),
+                                                  
+                                                  width: size.width *.6,
+                                                  child: Padding(
+                                                    padding: const EdgeInsets.all(8.0),
+                                                    child: Center(
+                                                      child: Text( state is ExchangedState?
+                                                      '${state.exchange.amount} ' :
+                                                      '00.00',
+                                                      style: TextStyle(
+                                                      fontWeight: FontWeight.bold,
+                                                      fontSize: appEngine.myFontSize["textInButton"],
+                                                      fontFamily: appEngine.myFontfamilies["st"]),
+                                                                                                  ),
+                                                    ),
+                                                  )
+                                                ),
+                                              ],
                                             ),
+                                            
                                           ],
                                         ),
                                       ),
@@ -143,7 +155,7 @@ class _ExchangeCurrencyPageState extends State<ExchangeCurrencyPage> {
                               ClipPath(
                                 clipper: FigureEightClipper(),
                                 child: Container(
-                                  color: appEngine.myColors["myGreen2"],
+                                  color: appEngine.myColors["myBlack"],
                                   height: 170.h,
                                   width: size.width*.7,
                                   child: Padding(
@@ -172,20 +184,27 @@ class _ExchangeCurrencyPageState extends State<ExchangeCurrencyPage> {
                                                 ),
                                                 Text("  ${VarGloabal.currenciesList[0]} ",
                                                       style: TextStyle(
-                                                        color: appEngine.myColors["myBlack"],
+                                                        color: appEngine.myColors["myWhite"],
                                                         fontWeight: FontWeight.bold,
                                                         fontSize: appEngine.myFontSize["subtitle"],
                                                         fontFamily: appEngine.myFontfamilies["st"]),
                                                       ),
                                               ],
                                             ),
-                                            Container(
-                                              width: size.width *.45,
-                                              child: InputContainer(
-                                                hintText: myHintText[2],
-                                                keyboardType: TextInputType.number,
-                                                controller: controller,
-                                              ),
+                                            Row(mainAxisAlignment: MainAxisAlignment.end,
+                                              children: [
+                                                Container(
+                                                  decoration: BoxDecoration(color:  appEngine.myColors["myWhite"],
+                                                  borderRadius: BorderRadius.circular(10)),
+                                                  
+                                                  width: size.width *.6,
+                                                  child: InputContainer(
+                                                    hintText: myHintText[2],
+                                                    keyboardType: TextInputType.number,
+                                                    controller: controller,
+                                                  ),
+                                                ),
+                                              ],
                                             ),
                                           ],
                                         ),
@@ -196,39 +215,26 @@ class _ExchangeCurrencyPageState extends State<ExchangeCurrencyPage> {
                             ],
                             ),
                           ),
-                                                  ),
+                         ),
                         ],
                       ),
                       
                       
+                      // GestureDetector(
+                          //   onTap: () {
+                          //     currcard = !currcard;
+                          //   },
+                          //   child: Text(
+                          //     "  ${currencySymbols[VarGloabal.currenciesList[0]]} ",
+                          //     style: TextStyle(
+                          //         color: appEngine.myColors['myGreen1'],
+                          //         fontWeight: FontWeight.bold,
+                          //         fontSize:
+                          //             appEngine.myFontSize["textInButton"],
+                          //         fontFamily: appEngine.myFontfamilies["st"]),
+                          //   ),
+                          // ),
                       
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: size.width *.45,
-                            child: InputContainer(
-                              hintText: myHintText[2],
-                              keyboardType: TextInputType.number,
-                              controller: controller,
-                            ),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              currcard = !currcard;
-                            },
-                            child: Text(
-                              "  ${currencySymbols[VarGloabal.currenciesList[0]]} ",
-                              style: TextStyle(
-                                  color: appEngine.myColors['myGreen1'],
-                                  fontWeight: FontWeight.bold,
-                                  fontSize:
-                                      appEngine.myFontSize["textInButton"],
-                                  fontFamily: appEngine.myFontfamilies["st"]),
-                            ),
-                          ),
-                        ],
-                      ),
                       Container(
                         height: size.height * .03,
                       ),

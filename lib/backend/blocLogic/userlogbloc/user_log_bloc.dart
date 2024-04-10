@@ -7,6 +7,7 @@ import 'package:http/http.dart'as http;
 import 'package:equatable/equatable.dart';
 
 
+import '../../../app_engine/app_localizations.dart';
 import '../../../app_engine/app_share_preference.dart';
 import '../../model/users.dart';
 import '../../url.dart';
@@ -27,6 +28,7 @@ class UserLogBloc extends Bloc<UserLogEvent, UserLogState> {
   
   authUserLogging(UserLoggingEvent event, Emitter<UserLogState> emit) async{
       emit(UserLoggingState());
+      AppLocalizations? lang = AppLocalizations();
       //await Future.delayed(Duration.zero);
       var datatopost = {
         "mailAddress" : event.email,
@@ -58,6 +60,7 @@ class UserLogBloc extends Bloc<UserLogEvent, UserLogState> {
       } else {
          print("response.body : ${json.decode(response.body)}");
         print("response.statusCode : ${response.statusCode}");
+        emit(UserLogError(lang.errorMessage));
       }
       } catch (e) {
         print("e : $e");
