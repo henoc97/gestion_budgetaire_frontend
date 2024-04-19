@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gestion_budgetaire_app/backend/blocLogic/usertransfersbloc/usertransfers_bloc.dart';
+import 'package:gestion_budgetaire_app/backend/blocLogic/transferlogique/usertransfersbloc/usertransfers_bloc.dart';
 import 'package:gestion_budgetaire_app/screens/main_page_wjdgets/widgets/account_page/widget/maketransfer.dart';
 
 import '../../../../app_engine/app_engine.dart';
 import '../../../../app_engine/app_localizations.dart';
 import '../../../../app_engine/currencies_hall.dart';
-import '../../../../backend/blocLogic/useraccount/useraccount_bloc.dart';
+import '../../../../backend/blocLogic/userlogique/useraccount/useraccount_bloc.dart';
 import 'widget/account_card.dart';
 import 'widget/accountcircularindicator.dart';
 import 'widget/transfertile.dart';

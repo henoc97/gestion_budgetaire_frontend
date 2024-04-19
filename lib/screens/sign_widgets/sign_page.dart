@@ -9,7 +9,7 @@ import '../../app_engine/app_engine.dart';
 import '../../app_engine/app_localizations.dart';
 import '../../app_engine/app_transition.dart';
 import '../../app_engine/vargloabal.dart';
-import '../../backend/blocLogic/userbloc/user_bloc.dart';
+import '../../backend/blocLogic/userlogique/userbloc/user_bloc.dart';
 import '../log_widgets/widgets/input_container.dart';
 import '../log_widgets/widgets/register_button.dart';
 import 'widgets/choosecurrency.dart';

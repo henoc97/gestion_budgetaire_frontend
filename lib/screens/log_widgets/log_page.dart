@@ -6,7 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../app_engine/app_engine.dart';
 import '../../app_engine/app_localizations.dart';
 import '../../app_engine/app_transition.dart';
-import '../../backend/blocLogic/userlogbloc/user_log_bloc.dart';
+import '../../backend/blocLogic/userlogique/userlogbloc/user_log_bloc.dart';
 import '../main_page_wjdgets/main_page.dart';
 import 'widgets/input_container.dart';
 import 'widgets/register_button.dart';

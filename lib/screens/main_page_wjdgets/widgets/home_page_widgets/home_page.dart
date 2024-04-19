@@ -5,7 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../../app_engine/app_engine.dart';
 import '../../../../app_engine/app_localizations.dart';
 import '../../../../app_engine/app_transition.dart';
-import '../../../../backend/blocLogic/userbudgetsbloc/userbudgets_bloc.dart';
+import '../../../../backend/blocLogic/budgetlogique/userbudgetsbloc/userbudgets_bloc.dart';
 import '../../../budget_home_page_widgets/budget_home_page.dart';
 import '../../../make_budgets_widgets/make_budgets_page.dart';
 import 'widgets/budget_list_tile.dart';

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gestion_budgetaire_app/backend/blocLogic/userbudgetsbloc/userbudgets_bloc.dart';
+import 'package:gestion_budgetaire_app/backend/blocLogic/budgetlogique/userbudgetsbloc/userbudgets_bloc.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 import '../../../../../app_engine/app_engine.dart';
 import '../../../../../app_engine/app_localizations.dart';
 import '../../../../../app_engine/vargloabal.dart';
-import '../../../../../backend/blocLogic/useraccount/useraccount_bloc.dart';
+import '../../../../../backend/blocLogic/userlogique/useraccount/useraccount_bloc.dart';
 
 class MyAccountCircularPercentIndicator extends StatelessWidget {
   const MyAccountCircularPercentIndicator({

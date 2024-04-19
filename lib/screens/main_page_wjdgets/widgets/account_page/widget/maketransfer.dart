@@ -3,12 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gestion_budgetaire_app/app_engine/app_engine.dart';
-import 'package:gestion_budgetaire_app/backend/blocLogic/transfertosoldbloc/transfertosold_bloc.dart';
-import 'package:gestion_budgetaire_app/backend/blocLogic/useraccount/useraccount_bloc.dart';
+import 'package:gestion_budgetaire_app/backend/blocLogic/transferlogique/transfertosoldbloc/transfertosold_bloc.dart';
+import 'package:gestion_budgetaire_app/backend/blocLogic/userlogique/useraccount/useraccount_bloc.dart';
 import 'package:gestion_budgetaire_app/backend/model/transacs.dart';
 
 import '../../../../../app_engine/app_localizations.dart';
-import '../../../../../backend/blocLogic/usertransfersbloc/usertransfers_bloc.dart';
+import '../../../../../backend/blocLogic/transferlogique/usertransfersbloc/usertransfers_bloc.dart';
 import '../../../../log_widgets/widgets/input_container.dart';
 import '../../../../log_widgets/widgets/register_button.dart';
 

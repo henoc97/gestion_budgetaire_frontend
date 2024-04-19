@@ -6,20 +6,20 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/date_symbol_data_local.dart'; 
 
 import 'app_engine/app_localizations.dart';
-import 'backend/blocLogic/budgetspendsbloc/budgetspends_bloc.dart';
+import 'backend/blocLogic/budgetlogique/budgetspendsbloc/budgetspends_bloc.dart';
 import 'backend/blocLogic/exchangebloc/exchange_bloc.dart';
-import 'backend/blocLogic/makebudgetbloc/makebudget_bloc.dart';
-import 'backend/blocLogic/makesavingsbloc/makesavings_bloc.dart';
-import 'backend/blocLogic/savingsbankbloc/usersavingsbank_bloc.dart';
-import 'backend/blocLogic/transacsbloc/transacs_bloc.dart';
-import 'backend/blocLogic/transfertosoldbloc/transfertosold_bloc.dart';
-import 'backend/blocLogic/updatesavingsbloc/updatesaving_bloc.dart';
-import 'backend/blocLogic/useraccount/useraccount_bloc.dart';
-import 'backend/blocLogic/userbloc/user_bloc.dart';
-import 'backend/blocLogic/userbudgetsbloc/userbudgets_bloc.dart';
-import 'backend/blocLogic/userlogbloc/user_log_bloc.dart';
-import 'backend/blocLogic/usersavingsbloc/usersavings_bloc.dart';
-import 'backend/blocLogic/usertransfersbloc/usertransfers_bloc.dart';
+import 'backend/blocLogic/budgetlogique/makebudgetbloc/makebudget_bloc.dart';
+import 'backend/blocLogic/savinglogique/makesavingsbloc/makesavings_bloc.dart';
+import 'backend/blocLogic/savinglogique/savingsbankbloc/usersavingsbank_bloc.dart';
+import 'backend/blocLogic/transferlogique/transacsbloc/transacs_bloc.dart';
+import 'backend/blocLogic/transferlogique/transfertosoldbloc/transfertosold_bloc.dart';
+import 'backend/blocLogic/savinglogique/updatesavingsbloc/updatesaving_bloc.dart';
+import 'backend/blocLogic/userlogique/useraccount/useraccount_bloc.dart';
+import 'backend/blocLogic/userlogique/userbloc/user_bloc.dart';
+import 'backend/blocLogic/budgetlogique/userbudgetsbloc/userbudgets_bloc.dart';
+import 'backend/blocLogic/userlogique/userlogbloc/user_log_bloc.dart';
+import 'backend/blocLogic/savinglogique/usersavingsbloc/usersavings_bloc.dart';
+import 'backend/blocLogic/transferlogique/usertransfersbloc/usertransfers_bloc.dart';
 import 'screens/log_sign_widgets/log_sign_page.dart';
 
 void main() {

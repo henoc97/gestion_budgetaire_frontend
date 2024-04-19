@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../app_engine/app_engine.dart';
 import '../../../../app_engine/app_localizations.dart';
-import '../../../../backend/blocLogic/budgetspendsbloc/budgetspends_bloc.dart';
+import '../../../../backend/blocLogic/budgetlogique/budgetspendsbloc/budgetspends_bloc.dart';
 import '../../../../backend/model/budget.dart';
 import 'widget/circular_percent_indicator.dart';
 import 'widget/spendstile.dart';

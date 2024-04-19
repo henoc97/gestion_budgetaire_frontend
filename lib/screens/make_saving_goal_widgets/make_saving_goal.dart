@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:gestion_budgetaire_app/backend/blocLogic/makesavingsbloc/makesavings_bloc.dart';
+import 'package:gestion_budgetaire_app/backend/blocLogic/savinglogique/makesavingsbloc/makesavings_bloc.dart';
 import 'package:gestion_budgetaire_app/backend/model/savings.dart';
 
 import '../../app_engine/app_engine.dart';
 import '../../app_engine/app_localizations.dart';
 import '../../app_engine/date_formatter.dart';
-import '../../backend/blocLogic/usersavingsbloc/usersavings_bloc.dart';
+import '../../backend/blocLogic/savinglogique/usersavingsbloc/usersavings_bloc.dart';
 import '../log_widgets/widgets/input_container.dart';
 import '../log_widgets/widgets/register_button.dart';
 import '../make_budgets_widgets/widgets/choose_begin_date_period.dart';

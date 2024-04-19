@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gestion_budgetaire_app/backend/blocLogic/usersavingsbloc/usersavings_bloc.dart';
+import 'package:gestion_budgetaire_app/backend/blocLogic/savinglogique/usersavingsbloc/usersavings_bloc.dart';
 
 import '../../../../../app_engine/app_engine.dart';
 import '../../../../../app_engine/app_localizations.dart';
-import '../../../../../backend/blocLogic/budgetspendsbloc/budgetspends_bloc.dart';
+import '../../../../backend/blocLogic/budgetlogique/budgetspendsbloc/budgetspends_bloc.dart';
 import '../../../../app_engine/vargloabal.dart';
-import '../../../../backend/blocLogic/savingsbankbloc/usersavingsbank_bloc.dart';
-import '../../../../backend/blocLogic/updatesavingsbloc/updatesaving_bloc.dart';
+import '../../../../backend/blocLogic/savinglogique/savingsbankbloc/usersavingsbank_bloc.dart';
+import '../../../../backend/blocLogic/savinglogique/updatesavingsbloc/updatesaving_bloc.dart';
 import '../../../../backend/model/savings.dart';
 import '../../../log_widgets/widgets/input_container.dart';
 import '../../../log_widgets/widgets/register_button.dart';

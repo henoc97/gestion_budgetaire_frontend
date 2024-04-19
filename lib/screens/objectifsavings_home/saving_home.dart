@@ -6,7 +6,7 @@ import 'package:gestion_budgetaire_app/backend/model/savings.dart';
 import '../../app_engine/app_engine.dart';
 import '../../app_engine/app_localizations.dart';
 import '../../app_engine/vargloabal.dart';
-import '../../backend/blocLogic/updatesavingsbloc/updatesaving_bloc.dart';
+import '../../backend/blocLogic/savinglogique/updatesavingsbloc/updatesaving_bloc.dart';
 import 'widget/glimpseobjectif/glimpse_objectif.dart';
 
 class SavingHomePage extends StatefulWidget {

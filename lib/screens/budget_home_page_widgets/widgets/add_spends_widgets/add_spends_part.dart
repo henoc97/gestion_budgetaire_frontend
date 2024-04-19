@@ -4,9 +4,9 @@ import 'package:gestion_budgetaire_app/app_engine/app_engine.dart';
 
 import '../../../../app_engine/app_localizations.dart';
 import '../../../../app_engine/vargloabal.dart';
-import '../../../../backend/blocLogic/budgetspendsbloc/budgetspends_bloc.dart';
-import '../../../../backend/blocLogic/transacsbloc/transacs_bloc.dart';
-import '../../../../backend/blocLogic/userbudgetsbloc/userbudgets_bloc.dart';
+import '../../../../backend/blocLogic/budgetlogique/budgetspendsbloc/budgetspends_bloc.dart';
+import '../../../../backend/blocLogic/transferlogique/transacsbloc/transacs_bloc.dart';
+import '../../../../backend/blocLogic/budgetlogique/userbudgetsbloc/userbudgets_bloc.dart';
 import '../../../../backend/model/transacs.dart';
 import '../../../log_widgets/widgets/input_container.dart';
 import '../../../log_widgets/widgets/register_button.dart';
