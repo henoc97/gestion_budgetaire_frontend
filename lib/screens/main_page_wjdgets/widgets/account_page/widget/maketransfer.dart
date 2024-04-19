@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gestion_budgetaire_app/app_engine/app_engine.dart';
-import 'package:gestion_budgetaire_app/backend/blocLogic/transacsbloc/transacs_bloc.dart';
 import 'package:gestion_budgetaire_app/backend/blocLogic/transfertosoldbloc/transfertosold_bloc.dart';
 import 'package:gestion_budgetaire_app/backend/blocLogic/useraccount/useraccount_bloc.dart';
 import 'package:gestion_budgetaire_app/backend/model/transacs.dart';
@@ -115,6 +114,7 @@ class _MakeTransferState extends State<MakeTransfer> {
                                   fieldCtrs[0].text.trim().replaceAll(',', '.')),
                               fieldCtrs[1].text.trim(),
                               DateTime.now())));
+                              for (var element in fieldCtrs) {element.clear();}
                         }
                       },
                     ),

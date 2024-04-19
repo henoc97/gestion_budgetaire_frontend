@@ -74,7 +74,7 @@ class _AccountPageState extends State<AccountPage> {
                           itemCount: transferliststate.transfers.length,
                           itemBuilder: (BuildContext context, int index) {
                             return TransferTile(
-                              transfer: transferliststate.transfers[index],
+                              transfer: transferliststate.transfers.reversed.toList()[index],
                             );
                           },
                         ),

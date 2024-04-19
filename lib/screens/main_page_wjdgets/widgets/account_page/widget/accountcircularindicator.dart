@@ -29,9 +29,9 @@ class MyAccountCircularPercentIndicator extends StatelessWidget {
                 double budgetsum = 0;
                 if((budgetstate is UserbudgetsgottenState) && (accountstate is UseraccountGottenState)){
                   
-                  budgetstate.budgetList.forEach((element) {
+                  for (var element in budgetstate.budgetList) {
                     budgetsum += element.budgetamountfix;
-                  } );
+                  }
                   budgetpercent = budgetsum/accountstate.account.sold;
                 }
                 return Padding(
