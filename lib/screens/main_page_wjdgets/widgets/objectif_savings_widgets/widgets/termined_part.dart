@@ -45,7 +45,9 @@ class TerminedPart extends StatelessWidget {
             return savingsList[index].allsavings 
               == savingsList[index].targetamount?
                SavingTile(
-              savings: savingsList[index],
+              savings: savingsList[index], 
+              savingsList: savingsList,
+              
             ): Container();
           },
         ),

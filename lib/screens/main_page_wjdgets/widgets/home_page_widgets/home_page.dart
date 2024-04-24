@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 import '../../../../app_engine/app_engine.dart';
 import '../../../../app_engine/app_localizations.dart';
 import '../../../../app_engine/app_transition.dart';
+import '../../../../backend/blocLogic/budgetlogique/deletebudgetbloc/deletebudget_bloc.dart';
 import '../../../../backend/blocLogic/budgetlogique/userbudgetsbloc/userbudgets_bloc.dart';
 import '../../../budget_home_page_widgets/budget_home_page.dart';
 import '../../../make_budgets_widgets/make_budgets_page.dart';
@@ -29,6 +31,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final deletebudgetBloc = BlocProvider.of<DeletebudgetBloc>(context);
     AppLocalizations? lang = AppLocalizations(); //.of(context);
     AppEngine appEngine = AppEngine();
     return BlocBuilder<UserbudegetsBloc, UserbudgetsState>(
@@ -81,7 +84,36 @@ class _HomePageState extends State<HomePage> {
                               context, BudgetHomePage(budget : state.budgetList[index]));
                           //AppTransition.zoomedGoTO(context, const BudgetHomePage());
                         },
-                        child:  BudgetListTile(budget:state.budgetList[index]));
+                        child:  Slidable(                         
+                          startActionPane: ActionPane(
+                            motion: const ScrollMotion(),
+                            children:  [
+                              SlidableAction(
+                                onPressed: (BuildContext context){
+                                  print('go go go');
+                                  
+                                  deletebudgetBloc.add(
+                                    DeletingbudgetEvent(
+                                      state.budgetList[index].id
+                                      ));
+                                      setState(() {
+                                        state.budgetList.removeWhere(
+                                        (item) => item.id == 
+                                        state.budgetList[index].id
+                                        );
+                                      });
+                                      
+                                      print('good good good');
+                                },
+                                backgroundColor : appEngine.myColors["myWhite"]!,
+                                foregroundColor: appEngine.myColors["myRed"]!,
+                                icon: FontAwesomeIcons.trashCan,
+                                label: lang.delete,
+                              ),                           
+                            ],
+                          ),
+
+                            child: BudgetListTile(budget:state.budgetList[index])));
                   },
                 ),
               ) else CircularProgressIndicator(color: appEngine.myColors["myGreen1"],),

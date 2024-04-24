@@ -50,6 +50,7 @@ class NotBeginPart extends StatelessWidget {
               child: savingsList[index].allsavings == 0?
                SavingTile(
                 savings:  savingsList[index], 
+                savingsList: savingsList,
               ): Container(),
             );
           },

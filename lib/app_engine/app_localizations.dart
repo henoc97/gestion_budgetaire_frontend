@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:gestion_budgetaire_app/backend/model/budget.dart';
 import 'package:intl/intl.dart';
 
 
@@ -140,6 +141,14 @@ class AppLocalizations{
 
   // error state
   String get errorMessage => Intl.message("une erreur s' est produite. Veillez réessayer plus tard", name : "errorMessage");
+
+
+  // supprimer
+   String get delete => Intl.message("supprimer", name : "delete");
+
+  // notification
+  String get budgetNotif => Intl.message("Alertes de Budget", name : "glimpse");
+  String get savingNotif => Intl.message("Alertes d'économie", name : "addSpend");
 
 }
 

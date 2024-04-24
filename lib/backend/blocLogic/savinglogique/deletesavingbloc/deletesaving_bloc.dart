@@ -26,7 +26,7 @@ class DeletesavingBloc extends Bloc<DeletesavingEvent, DeletesavingState> {
     emit(DeletingsavingState());
     AppLocalizations? lang = AppLocalizations();
     var datatopost = {
-      "idsaving" : event.id,
+      "savingid" : event.id,
     };
     var token = await getString("tokens");
     print(datatopost);
@@ -36,7 +36,7 @@ class DeletesavingBloc extends Bloc<DeletesavingEvent, DeletesavingState> {
         Uri.parse(UrlAPI.deletesaving),
       headers : <String, String> {
         'Content-Type': 'application/json',
-        "Authori,za,tion": "Bearer $token"
+        "Authorization": "Bearer $token"
       },
       body: jsonEncode(datatopost),
     );

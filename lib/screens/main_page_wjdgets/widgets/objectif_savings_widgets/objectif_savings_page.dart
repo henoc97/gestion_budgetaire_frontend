@@ -9,7 +9,7 @@ import '../../../../backend/blocLogic/savinglogique/savingsbankbloc/usersavingsb
 import '../../../../backend/blocLogic/savinglogique/usersavingsbloc/usersavings_bloc.dart';
 import '../../../make_saving_goal_widgets/make_saving_goal.dart';
 import '../account_page/widget/account_card.dart';
-import 'widgets/inprogress_oart.dart';
+import 'widgets/inprogress_part.dart';
 import 'widgets/notbegin_part.dart';
 import 'widgets/termined_part.dart';
 

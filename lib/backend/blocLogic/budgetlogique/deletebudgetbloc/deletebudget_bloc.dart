@@ -27,7 +27,7 @@ class DeletebudgetBloc extends Bloc<DeletebudgetEvent, DeletebudgetState> {
     emit(DeletingbudgetState());
     AppLocalizations? lang = AppLocalizations();
     var datatopost = {
-      "idsaving" : event.id,
+      "budgetid" : event.id,
     };
     var token = await getString("tokens");
     print(datatopost);
@@ -37,7 +37,7 @@ class DeletebudgetBloc extends Bloc<DeletebudgetEvent, DeletebudgetState> {
         Uri.parse(UrlAPI.deletebudget),
       headers : <String, String> {
         'Content-Type': 'application/json',
-        "Author,i,zation": "Bearer $token"
+        "Authorization": "Bearer $token"
       },
       body: jsonEncode(datatopost),
     );

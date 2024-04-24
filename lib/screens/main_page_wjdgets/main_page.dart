@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
@@ -6,10 +7,12 @@ import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 import '../../app_engine/app_engine.dart';
 import '../../app_engine/app_localizations.dart';
+import '../../app_engine/app_transition.dart';
 import 'widgets/account_page/account_page.dart';
 import 'widgets/calendar/topcalendar.dart';
 import 'widgets/exchange_currency_widget/exchange_currency_page.dart';
 import 'widgets/home_page_widgets/home_page.dart';
+import 'widgets/notification_page/main_notif_page.dart';
 import 'widgets/objectif_savings_widgets/objectif_savings_page.dart';
 
 
@@ -90,7 +93,12 @@ class _MainPageState extends State<MainPage> {
                                     colorFilter: ColorFilter.mode(appEngine.myColors["myGreen1"]!, BlendMode.srcIn),
                                     ),
               ),
-              Icon(Icons.circle_notifications_outlined, size: 30.sp, color: appEngine.myColors["myGreen1"],)
+              GestureDetector(
+                onTap: () {
+                  AppTransition.standardGoTo(
+                              context, const MainNotificationPage());
+                },
+                child: Icon(Icons.circle_notifications_outlined, size: 30.sp, color: appEngine.myColors["myGreen1"],))
             ],
           ),
         ),

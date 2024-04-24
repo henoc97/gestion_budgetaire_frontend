@@ -28,17 +28,17 @@ class DeletetransferBloc extends Bloc<DeletetransferEvent, DeletetransferState> 
     emit(DeletingtransferState());
     AppLocalizations? lang = AppLocalizations();
     var datatopost = {
-      "idsaving" : event.id,
+      "transferid" : event.id,
     };
     var token = await getString("tokens");
     print(datatopost);
     print(token);
     try {
       final response = await http.post(
-        Uri.parse(UrlAPI.deletetransac),
+        Uri.parse(UrlAPI.deletetransfer),
       headers : <String, String> {
         'Content-Type': 'application/json',
-        "Authori,zation": "Bearer $token"
+        "Authorization": "Bearer $token"
       },
       body: jsonEncode(datatopost),
     );
