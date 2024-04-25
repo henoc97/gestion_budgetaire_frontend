@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gestion_budgetaire_app/app_engine/vargloabal.dart';
@@ -56,235 +57,168 @@ class _ExchangeCurrencyPageState extends State<ExchangeCurrencyPage> {
           key: _formkey,
           child: Wrap(
             children: [
-              Stack(
+              Column(
                 children: [
-                  Column(
+                  Container(height: 0,),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SizedBox(
+                    width: size.width,
+                    child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: SizedBox(
-                              width: size.width,
-                              child: Row(mainAxisAlignment: MainAxisAlignment.start,
+                       Stack(
+                         children: [
+                            SizedBox(
+                            height: 320.h,
+                            width: 320.w,
+                            child: Image.asset(
+                              "assets/img/exc_currency.png",
+                              color: appEngine.myColors['myGreen1']!.withOpacity(0.2),
+                            )),
+
+                            SizedBox(
+                              height: 300.h,
+                              child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
                                 children: [
-                                  ClipPath(
-                                    clipper: FigureEightClipper(),
-                                    child: Container(
-                                      color: appEngine.myColors["myGreen2"],
-                                      height: 170.h,
-                                      width: size.width*.7,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(mainAxisAlignment: MainAxisAlignment.center,
-                                          children: [
-                                            Row(
-                                              children: [
-                                                Container(
-                                                  decoration: BoxDecoration(
-                                                    shape: BoxShape.circle,
-                                                    color: appEngine.myColors["mygrey"]!.withOpacity(0.5)
-                                                  ),
-                                                  child: Padding(
-                                                    padding: const EdgeInsets.all(8.0),
-                                                    child: Text(" ${currencySymbols[VarGloabal.currenciesList[1]]} ",
-                                                    style: TextStyle(
-                                                      color: appEngine.myColors["myWhite"],
-                                                      fontWeight: FontWeight.bold,
-                                                      fontSize: appEngine.myFontSize["textInButton"],
-                                                      fontFamily: appEngine.myFontfamilies["st"]),
-                                                    ),
-                                                  ),
-                                                ),
-                                                Text("  ${VarGloabal.currenciesList[1]} ",
-                                                      style: TextStyle(
-                                                        color: appEngine.myColors["myWhite"],
-                                                        fontWeight: FontWeight.bold,
-                                                        fontSize: appEngine.myFontSize["subtitle"],
-                                                        fontFamily: appEngine.myFontfamilies["st"]),
-                                                      ),
-                                              ],
-                                            ),
-                                            Row(mainAxisAlignment: MainAxisAlignment.end,
-                                              children: [
-                                                Container(
-                                                  decoration: BoxDecoration(color:  appEngine.myColors["myWhite"],
-                                                  borderRadius: BorderRadius.circular(10)),
-                                                  
-                                                  width: size.width *.6,
-                                                  child: Padding(
-                                                    padding: const EdgeInsets.all(8.0),
-                                                    child: Center(
-                                                      child: Text( state is ExchangedState?
-                                                      '${state.exchange.amount} ' :
-                                                      '00.00',
-                                                      style: TextStyle(
-                                                      fontWeight: FontWeight.bold,
-                                                      fontSize: appEngine.myFontSize["textInButton"],
-                                                      fontFamily: appEngine.myFontfamilies["st"]),
-                                                                                                  ),
-                                                    ),
-                                                  )
-                                                ),
-                                              ],
-                                            ),
-                                            
-                                          ],
-                                        ),
+                                  Row(
+                                    children: [
+                                      Text(" ${currencySymbols[VarGloabal.currenciesList[1]]} ",
+                                      style: TextStyle(
+                                        color: appEngine.myColors["myBlack"],
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: appEngine.myFontSize["textInButton"],
+                                        fontFamily: appEngine.myFontfamilies["st"]),
                                       ),
-                                    ),
+                              
+                                      Container(
+                                        decoration: BoxDecoration(color:  appEngine.myColors["myWhite"],
+                                        borderRadius: BorderRadius.circular(10)),
+                                        
+                                        width: size.width *.6,
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Center(
+                                            child: Text( state is ExchangedState?
+                                            '${state.exchange.amount} ' :
+                                            '00.00',
+                                            style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: appEngine.myFontSize["textInButton"],
+                                            fontFamily: appEngine.myFontfamilies["st"]),
+                                                                                        ),
+                                          ),
+                                        )
+                                      ),
+                              
+                                      Text("  ${VarGloabal.currenciesList[1]} ",
+                                            style: TextStyle(
+                                              color: appEngine.myColors["myGreen1"],
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: appEngine.myFontSize["subtitle"],
+                                              fontFamily: appEngine.myFontfamilies["st"]),
+                                            ),
+                                    ],
                                   ),
                                   
+                                  
+                                  Column( mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Row(mainAxisAlignment: MainAxisAlignment.end,
+                                        children: [
+                                          Center(
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                shape: BoxShape.circle,
+                                                color: appEngine.myColors["myWhite"]!.withOpacity(0.5)
+                                              ),
+                                              child: Text(" ${currencySymbols[VarGloabal.currenciesList[0]]} ",
+                                              style: TextStyle(
+                                                color: appEngine.myColors["myBlack"],
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: appEngine.myFontSize["textInButton"],
+                                                fontFamily: appEngine.myFontfamilies["st"]),
+                                              ),
+                                            ),
+                                          ),
+                                  
+                                          Container(
+                                            decoration: BoxDecoration(color:  appEngine.myColors["myWhite"],
+                                            borderRadius: BorderRadius.circular(10)),
+                                            
+                                            width: size.width *.6,
+                                            child: InputContainer(
+                                              hintText: myHintText[2],
+                                              keyboardType: TextInputType.number,
+                                              controller: controller,
+                                            ),
+                                          ),
+                                  
+                                          GestureDetector(
+                                            onTap: () {
+                                              currcard = !currcard;
+                                            },
+                                            child: Text(
+                                              "  ${VarGloabal.currenciesList[0]} ",
+                                              style: TextStyle(
+                                                  color: appEngine.myColors['myGreen1'],
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize:
+                                                      appEngine.myFontSize["subtitle"],
+                                                  fontFamily: appEngine.myFontfamilies["st"]),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      
+                                    ],
+                                  ),
                                 ],
                               ),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: SizedBox(
-                            width: size.width,
-                            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                               SizedBox(
-                                height: 90.h,
-                                width: 90.w,
-                                child: Image.asset(
-                                  "assets/img/exc_currency.png",
-                                  color: appEngine.myColors['myGreen1'],
-                                )),
-                              ClipPath(
-                                clipper: FigureEightClipper(),
-                                child: Container(
-                                  color: appEngine.myColors["myBlack"],
-                                  height: 170.h,
-                                  width: size.width*.7,
-                                  child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column( mainAxisAlignment: MainAxisAlignment.center,
-                                          children: [
-                                            Row(mainAxisAlignment: MainAxisAlignment.end,
-                                              children: [
-                                                Center(
-                                                  child: Container(
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                      color: appEngine.myColors["myWhite"]!.withOpacity(0.5)
-                                                    ),
-                                                    child: Padding(
-                                                      padding: const EdgeInsets.all(8.0),
-                                                      child: Text(" ${currencySymbols[VarGloabal.currenciesList[0]]} ",
-                                                      style: TextStyle(
-                                                        color: appEngine.myColors["myBlack"],
-                                                        fontWeight: FontWeight.bold,
-                                                        fontSize: appEngine.myFontSize["textInButton"],
-                                                        fontFamily: appEngine.myFontfamilies["st"]),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                                Text("  ${VarGloabal.currenciesList[0]} ",
-                                                      style: TextStyle(
-                                                        color: appEngine.myColors["myWhite"],
-                                                        fontWeight: FontWeight.bold,
-                                                        fontSize: appEngine.myFontSize["subtitle"],
-                                                        fontFamily: appEngine.myFontfamilies["st"]),
-                                                      ),
-                                              ],
-                                            ),
-                                            Row(mainAxisAlignment: MainAxisAlignment.end,
-                                              children: [
-                                                Container(
-                                                  decoration: BoxDecoration(color:  appEngine.myColors["myWhite"],
-                                                  borderRadius: BorderRadius.circular(10)),
-                                                  
-                                                  width: size.width *.6,
-                                                  child: InputContainer(
-                                                    hintText: myHintText[2],
-                                                    keyboardType: TextInputType.number,
-                                                    controller: controller,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                ),
-                              ),
-                              
-                            ],
-                            ),
-                          ),
-                         ),
-                        ],
-                      ),
+                            currcard
+                  ? CurrencyCard(
+                      onPressed: () {
+                        currcard = false;
+                      },
+                    )
+                  : Container(),
+                          ],
+                       ),
                       
                       
-                      // GestureDetector(
-                          //   onTap: () {
-                          //     currcard = !currcard;
-                          //   },
-                          //   child: Text(
-                          //     "  ${currencySymbols[VarGloabal.currenciesList[0]]} ",
-                          //     style: TextStyle(
-                          //         color: appEngine.myColors['myGreen1'],
-                          //         fontWeight: FontWeight.bold,
-                          //         fontSize:
-                          //             appEngine.myFontSize["textInButton"],
-                          //         fontFamily: appEngine.myFontfamilies["st"]),
-                          //   ),
-                          // ),
-                      
-                      Container(
-                        height: size.height * .03,
-                      ),
-                      ResgisterButton(
-                        buttonText: lang.exchange,
-                        action: () {
-                          if (_formkey.currentState!.validate() &&
-                              VarGloabal.currenciesList.length == 2) {
-                            exchangeBloc.add(ExchangingEvent(
-                                double.parse(controller.text
-                                    .trim()
-                                    .replaceAll(',', '.')),
-                                VarGloabal.currenciesList));
-                          }
-                        },
-                      )
                     ],
+                    ),
                   ),
-                  currcard
-                      ? CurrencyCard(
-                          onPressed: () {
-                            currcard = false;
-                          },
-                        )
-                      : Container()
+                 ),
                 ],
               ),
+              
+              
+               
+              
+              Container(
+                height: size.height * .03,
+              ),
+              Center(
+                child: ResgisterButton(
+                  buttonText: lang.exchange,
+                  action: () {
+                    if (_formkey.currentState!.validate() &&
+                        VarGloabal.currenciesList.length == 2) {
+                      exchangeBloc.add(ExchangingEvent(
+                          double.parse(controller.text
+                              .trim()
+                              .replaceAll(',', '.')),
+                          VarGloabal.currenciesList));
+                    }
+                  },
+                ),
+              ),
+              
             ],
           ),
         );
       },
     );
-  }
-}
-
-class FigureEightClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    var path = Path();
-    path.moveTo(size.width / 2, 0);
-    path.quadraticBezierTo(size.width, 0, size.width, size.height / 2);
-    path.quadraticBezierTo(size.width , size.height, size.width / 4, size.height);
-    path.quadraticBezierTo(0, size.height, 0, size.height / 2);
-    path.quadraticBezierTo(0, 0, size.width / 2, 0);
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) {
-    return false;
   }
 }

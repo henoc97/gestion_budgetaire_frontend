@@ -64,12 +64,17 @@ class ObjectifPercentIndicator extends StatelessWidget {
               children: [
                  Row( mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(" ${lang.jj.substring(0, 1)}${lang.jj.substring(0, 1)} -  ", 
+                    jjdate>0? Text(" ${lang.jj.substring(0, 1)}${lang.jj.substring(0, 1)} -  ", 
                     style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], 
                     fontSize: appEngine.myFontSize["hintText"],  
-                    fontWeight: FontWeight.bold, color: appEngine.myColors["myGreen1"]),),
-                    for ( var var_name =  0; var_name  < jjdate.toString().length; var_name++ )
-                    Jjdatecard(numdate: jjdate.toString()[var_name],),
+                    fontWeight: FontWeight.bold, color: appEngine.myColors["myGreen1"]),) : 
+
+                    Text(" ${lang.jj.substring(0, 1)}${lang.jj.substring(0, 1)} +  ", 
+                    style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], 
+                    fontSize: appEngine.myFontSize["hintText"],  
+                    fontWeight: FontWeight.bold, color: appEngine.myColors["myRed"]),),
+                    for ( var varName =  0; varName  < jjdate.toString().length - 1; varName++ )
+                    Jjdatecard(numdate: jjdate.toString()[varName + 1],),
                   ],
                 ),
 

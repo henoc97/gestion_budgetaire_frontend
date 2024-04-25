@@ -23,5 +23,7 @@ static const updatesold = "$host/updatesold";
 static const convertamount = "$host/convertamount";
 static const transfertosold = "$host/transfer_to_sold";
 static const usertransfers = "$host/user_transfers";
+static const accountsavingsbank = "$host/account_savingsbank";
+
 
 }

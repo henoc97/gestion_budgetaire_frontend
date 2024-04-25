@@ -25,10 +25,14 @@ class _GlimpseSavingState extends State<GlimpseSaving> {
   TextEditingController controller = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
-  @override
-  void initState() {
-    super.initState();
-    print("ca devrait marcher ");
+  
+  
+  bool _toggleAddRemoveAmount = true;
+  bool get toggleAddRemoveAmount => _toggleAddRemoveAmount;
+  set toggleAddRemoveAmount(bool value){
+    setState(() {
+      _toggleAddRemoveAmount = value;
+    });
   }
 
   @override
@@ -46,17 +50,51 @@ class _GlimpseSavingState extends State<GlimpseSaving> {
               savings: widget.savings,
             ),
             Container(
-              height: 40,
+              height: 10,
             ),
             Expanded(
                 child: Form(
               key: _formKey,
               child: Wrap(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  children: [
+
+                                    Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                            GestureDetector(
+                              onTap: (){
+                                toggleAddRemoveAmount = true;
+                              },
+                              child: Card(
+                                elevation: toggleAddRemoveAmount? 35 : 5,
+                                shadowColor: appEngine.myColors["myGreen1"],
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(lang.addAmount, style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["hintText"],  fontWeight: FontWeight.bold, color: appEngine.myColors["myGreen1"]),),
+                                ),
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: (){
+                                toggleAddRemoveAmount = false;
+                              },
+                              child: Card(
+                                elevation: !toggleAddRemoveAmount? 35 : 5,
+                                shadowColor: appEngine.myColors["myGreen1"],
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(lang.removeAmounut, style: TextStyle(fontFamily: appEngine.myFontfamilies["st"], fontSize: appEngine.myFontSize["hintText"],  fontWeight: FontWeight.bold, color: appEngine.myColors["myGreen1"]),),
+                                ),
+                              ),
+                            )
+                          ],),
+                        ),
+                        Container(height: 30,),
                         InputContainer(
                           keyboardType: TextInputType.number,
                           //isClicked: isClicked == index? true : false,
@@ -69,17 +107,23 @@ class _GlimpseSavingState extends State<GlimpseSaving> {
                                     usersavings.add(UsersavingsgettingEvent());
                                     savingbankbloc.add(UsersavingsbankGettingEvent());
                                   }
+                                  controller.clear();
                                 },
                                 child: updatesavingstate is! UpdatingsavingState
                               ? ResgisterButton(
-                                  buttonText: lang.addtoallsavings,
+                                  buttonText: toggleAddRemoveAmount? lang.addAmount : lang.removeAmounut,
                                   action: () {
                                     if (_formKey.currentState!.validate()) {
                                       updateallsavingsbloc.add(UpdatingsavingEvent(
                                           widget.savings.id,
-                                          double.parse(controller.text
-                                              .replaceAll(',', '.'))));
-                                      VarGloabal.allsavings += double.parse(
+                                          toggleAddRemoveAmount? double.parse(controller.text
+                                              .replaceAll(',', '.')) : 
+                                              - double.parse(controller.text
+                                              .replaceAll(',', '.'))
+                                              ));
+                                      toggleAddRemoveAmount? VarGloabal.allsavings += double.parse(
+                                          controller.text.replaceAll(',', '.')) : 
+                                          VarGloabal.allsavings -= double.parse(
                                           controller.text.replaceAll(',', '.'));
                                     }
                                   },

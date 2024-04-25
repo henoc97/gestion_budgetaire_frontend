@@ -99,13 +99,15 @@ class AppLocalizations{
   String get goal => Intl.message("L'objectif de cette économie", name : "goal");
   String get targetAmount => Intl.message("Montant cîblé", name : "targetAmount");
   String get reachGoalDate => Intl.message("La date pour atteindre l'objectif", name : "reachGoalDate");
+  
   // home savings
   String get addamounttoallsavings => Intl.message("La somme", name : "addamounttoallsavings");
-  String get addtoallsavings => Intl.message("Ajouter", name : "addtoallsavings");
   String get jj => Intl.message("Jour", name : "jj");
   String get inprogress => Intl.message("En cours", name : "inprogress");
   String get notbegin => Intl.message("Pas commencé", name : "notbegin");
   String get termined => Intl.message("Terminé", name : "termined");
+  String get addAmount => Intl.message("   Ajouter   ", name : "addAmount");
+  String get removeAmounut => Intl.message("   Retrancher   ", name : "removeAmounut");
 
 
 
@@ -147,8 +149,8 @@ class AppLocalizations{
    String get delete => Intl.message("supprimer", name : "delete");
 
   // notification
-  String get budgetNotif => Intl.message("Alertes de Budget", name : "glimpse");
-  String get savingNotif => Intl.message("Alertes d'économie", name : "addSpend");
+  String get budgetNotif => Intl.message("Alertes de Budget", name : "budgetNotif");
+  String get savingNotif => Intl.message("Alertes d'économie", name : "savingNotif");
 
 }
 

@@ -20,6 +20,7 @@ import 'backend/blocLogic/transferlogique/deletetransferbloc/deletetransfer_bloc
 import 'backend/blocLogic/transferlogique/transacsbloc/transacs_bloc.dart';
 import 'backend/blocLogic/transferlogique/transfertosoldbloc/transfertosold_bloc.dart';
 import 'backend/blocLogic/savinglogique/updatesavingsbloc/updatesaving_bloc.dart';
+import 'backend/blocLogic/userlogique/accountcommunicationbloc/account_communication_bloc.dart';
 import 'backend/blocLogic/userlogique/useraccount/useraccount_bloc.dart';
 import 'backend/blocLogic/userlogique/userbloc/user_bloc.dart';
 import 'backend/blocLogic/budgetlogique/userbudgetsbloc/userbudgets_bloc.dart';
@@ -109,6 +110,9 @@ class _MyAppState extends State<MyApp> {
         ),
         BlocProvider<DeletetransferBloc>(
           create: (context) => DeletetransferBloc(),
+        ),
+        BlocProvider<AccountCommunicationBloc>(
+          create: (context) => AccountCommunicationBloc(),
         )
         ],
         child: MaterialApp(
